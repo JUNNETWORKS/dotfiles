@@ -1,0 +1,98 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# color-theme
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+# Vim上でGit操作を行うやつ
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+# GitHub Extension
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
+
+# Status bar
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+# ファイルエクスプローラー
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+depends = ['defx-git', 'defx-icons']
+hook_add = """
+source ~/.config/nvim/plugins/defx.rc.vim
+"""
+
+# defxで使うアイコンフォント
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+
+# defxでGit statusを表示する
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+
+# ファイル検索など
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = """
+source ~/.config/nvim/plugins/denite.rc.vim
+"""
+
+# 非同期処理用(Vimスクリプトで使う)
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+  if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif executable('gmake')
+    let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''
+
+# バッファ(開いたファイル)を簡単に行き来できる
+[[plugins]]
+repo = 'jlanzarotta/bufexplorer'
+
+# プログラミング関連のアイコンを追加する(他のプラグインがこれに依存してたりする)
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+# 括弧の補完など
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
+# 他のプラグインがこれに依存してたりする
+[[plugins]]
+# Yet Another Remote Plugin Framework for Neovim
+repo = 'roxma/nvim-yarp'
+if = '''!has('nvim')'''
+
+# 他のプラグインがこれに依存してたりする
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+if = '''!has('nvim')'''
+
+# 他のプラグインがこれに依存してたりする
+[[plugins]]
+repo = 'neovim/python-client'
+if = '''!has('nvim')'''
+
+# 複数言語対応のIntellisense
+[[plugins]]
+repo = "neoclide/coc.nvim"
+merge = 0
+rev = "release"
+hook_add = """
+source ~/.config/nvim/plugins/coc.rc.vim
+"""
+
+# Japanese Vim Help
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
