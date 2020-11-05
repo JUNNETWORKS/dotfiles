@@ -65,8 +65,8 @@ repo = 'jlanzarotta/bufexplorer'
 repo = 'ryanoasis/vim-devicons'
 
 # 括弧の補完など
-[[plugins]]
-repo = 'jiangmiao/auto-pairs'
+# [[plugins]]
+# repo = 'jiangmiao/auto-pairs'
 
 # 他のプラグインがこれに依存してたりする
 [[plugins]]
