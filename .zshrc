@@ -128,6 +128,10 @@ alias norminetteR="~/.norminette/norminette.rb -R CheckForbiddenSourceHeader"
 alias pbcopy='xsel --clipboard --input'
 
 # Git aliases
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gd="git diff"
 alias gitlog_branch="git log --first-parent --graph --abbrev-commit --decorate"
 
 # NeoVim
