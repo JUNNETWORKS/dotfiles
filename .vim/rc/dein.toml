@@ -96,3 +96,10 @@ source ~/.config/nvim/plugins/coc.rc.vim
 # Japanese Vim Help
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
+
+# Rainbow brackets
+[[plugins]]
+repo = 'luochen1990/rainbow'
+hook_add = '''
+    let g:rainbow_active = 1
+'''
