@@ -26,6 +26,8 @@ set expandtab
 "let loaded_matchparen = 1
 set shell=zsh
 set backupskip=/tmp/*,/private/tmp/*
+" 外部で変更のあったファイルを自動で再読込
+set autoread
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -83,14 +85,6 @@ au BufNewFile,BufRead *.tsx setf typescript
 au BufNewFile,BufRead *.md set filetype=markdown
 " Flow
 au BufNewFile,BufRead *.flow set filetype=javascript
-" C
-autocmd BufNewFile,BufRead *.c setfiletype c
-" C++
-autocmd BufNewFile,BufRead *.cpp setfiletype cpp
-" C header file
-autocmd BufNewFile,BufRead *.h setfiletype h
-" Makefile
-autocmd BufNewFile,BufRead *.make setfiletype make
 
 " 言語ごとのタブの設定
 " 42用にC言語関連はスペースではなくタブ, タブの表示幅は4文字.
@@ -98,6 +92,11 @@ autocmd FileType c setlocal noexpandtab tabstop=4
 autocmd FileType cpp setlocal noexpandtab tabstop=4
 autocmd FileType h setlocal noexpandtab tabstop=4
 autocmd FileType make setlocal noexpandtab tabstop=4
+
+" タブ文字などを見えるようにする
+" https://blog.delphinus.dev/2011/08/display-invisible-characters-on-vim.html
+set list
+set listchars=tab:»-,trail:-
 "-------------------------------------------------------------------------------
 " Cursor line
 "-------------------------------------------------------------------------------
