@@ -182,7 +182,8 @@ let g:webdevicons_enable_vimfiler = 1
 " Color scheme
 "-------------------------------------------------------------------------------
 
-colorscheme solarized
+" colorscheme solarized
+colorscheme codedark
 
 "-------------------------------------------------------------------------------
 " imports
@@ -197,7 +198,8 @@ if has("unix")
 endif
 
 source ~/.vimrc.maps
-source ~/.vimrc.lightline
+" source ~/.vimrc.lightline
+" 現在有効になっている dark theme は dein.toml 内で定義している.
 
 " 42Tokyo
 source ~/.vim/plugin/stdheader.vim

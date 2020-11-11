@@ -1,9 +1,9 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# color-theme
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
+# # color-theme
+# [[plugins]]
+# repo = 'altercation/vim-colors-solarized'
 
 # Vim上でGit操作を行うやつ
 [[plugins]]
@@ -103,3 +103,7 @@ repo = 'luochen1990/rainbow'
 hook_add = '''
     let g:rainbow_active = 1
 '''
+
+# dark theme
+[[plugins]]
+repo = 'tomasiser/vim-code-dark'
