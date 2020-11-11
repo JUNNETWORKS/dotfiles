@@ -18,3 +18,12 @@
 ## TODO
 
 neovim が Python3 に依存しているとか, oh-my-zsh のテーマの agnoster のためのフォントなどの依存関係の解決は何もしてないので出来るようにしたい.
+
+### 依存しているもの
+
+- git
+- zsh
+- oh-my-zsh
+- neovim
+- [Powerline fonts](https://github.com/powerline/fonts) oh-my-zsh の theme 用
+- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) neovim の dfsx プラグイン用
