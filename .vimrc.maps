@@ -35,9 +35,13 @@ vnoremap <silent> # :<C-U>
 " Tabs
 "-------------------------------------------------------------------------------
 " Open current directory
-" nmap te :tabedit
+nmap te :tabedit
+" タブ移動は <C-PageDown> / <C-PageUp> で出来る
 " nmap <S-Tab> :tabprev<Return>
 " nmap <Tab> :tabnext<Return>
+" タブ並び替え (chromeライクなキーマップ)
+nmap <C-S-PageDown> :+tabmove
+nmap <C-S-PageUp> :-tabmove
 
 "-------------------------------------------------------------------------------
 " Windows
