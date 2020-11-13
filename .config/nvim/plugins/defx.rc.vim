@@ -2,11 +2,27 @@
 "cnoreabbrev sf Defx -listed -new
 "      \ -columns=indent:mark:icon:icons:filename:git:size
 "      \ -buffer-name=tab`tabpagenr()`<CR>
-nnoremap <silent>sf :<C-u>Defx -listed -resume
+
+" 全画面でファイルエクスプローラーを開く設定
+" nnoremap <silent>sf :<C-u>Defx -listed -resume
+"       \ -columns=indent:mark:icon:icons:filename:git:size
+"       \ -buffer-name=tab`tabpagenr()`
+"       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
+
+" 左側にウィンドウを開いてそこでcwdでファイルエクスプローラーを表示する
+nnoremap <silent>sf :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft
+      \ -columns=indent:mark:icon:icons:filename:git:size
+      \ -buffer-name=tab`tabpagenr()`
+      \ `expand(getcwd())` -search=`expand('%:p')`<CR>
+      " \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
+
+" nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
+
+" fi で現在のファイルの親ディレクトリを開く
+nnoremap <silent>fi :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft
       \ -columns=indent:mark:icon:icons:filename:git:size
       \ -buffer-name=tab`tabpagenr()`
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
-nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 autocmd FileType defx call s:defx_my_settings()
 	function! s:defx_my_settings() abort
@@ -26,7 +42,7 @@ autocmd FileType defx call s:defx_my_settings()
 	  nnoremap <silent><buffer><expr> P
 	  \ defx#do_action('open', 'pedit')
 	  nnoremap <silent><buffer><expr> o
-	  \ defx#do_action('open_or_close_tree')
+	  \ defx#do_action('open_tree', ['toggle', 'nested'])
 	  nnoremap <silent><buffer><expr> K
 	  \ defx#do_action('new_directory')
 	  nnoremap <silent><buffer><expr> N
