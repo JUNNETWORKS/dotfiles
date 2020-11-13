@@ -27,3 +27,4 @@ neovim が Python3 に依存しているとか, oh-my-zsh のテーマの agnost
 - neovim
 - [Powerline fonts](https://github.com/powerline/fonts) oh-my-zsh の theme 用
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) neovim の dfsx プラグイン用
+- [commitizen](https://github.com/commitizen/cz-cli)

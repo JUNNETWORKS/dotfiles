@@ -19,3 +19,7 @@ ln -sf ~/dotfiles/scripts ~/scripts
 
 # ranger
 ln -sf ~/dotfiles/.config/ranger ~/.config/ranger
+
+# git
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+
