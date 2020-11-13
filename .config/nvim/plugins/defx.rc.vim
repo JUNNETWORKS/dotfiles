@@ -24,6 +24,22 @@ nnoremap <silent>fi :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft
       \ -buffer-name=tab`tabpagenr()`
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
+" h キーのキーバインドのための関数
+function! Defx_h_key()
+  " カーソルがファイルにある場合は親ディレクトリにカーソルを移動する
+  if !defx#is_directory()
+    echo "go to parent dir"
+    call defx#do_action('search', fnamemodify(defx#get_candidate().action__path, ':h'))
+  " カーソルがディレクトリにある場合は, ツリーが展開されていたら閉じる. 展開されていなければ親ディレクトリに移動.
+  else
+    if defx#is_opened_tree()
+      call defx#do_action('close_tree')
+    else
+	    call defx#do_action('cd', ['..'])
+    endif
+  endif
+endfunction
+
 autocmd FileType defx call s:defx_my_settings()
 	function! s:defx_my_settings() abort
 	  " Define mappings
@@ -75,10 +91,20 @@ autocmd FileType defx call s:defx_my_settings()
 	  \ defx#do_action('toggle_ignored_files')
 	  nnoremap <silent><buffer><expr> ;
 	  \ defx#do_action('repeat')
+    " ファイルの時は親ディレクトリに移動. ディレクトリの時はディレクトリを閉じるか1つ上のディレクトリに移動する
 	  nnoremap <silent><buffer><expr> h
-    \ defx#is_opened_tree() ?
-    \ defx#do_action('close_tree') :
-	  \ defx#do_action('cd', ['..'])
+    \ " カーソルがファイルにある場合は親ディレクトリにカーソルを移動する
+    \ :if !defx#is_directory()
+    \   :echo "go to parent dir"
+    \   :defx#do_action('search', fnamemodify(defx#get_candidate().action__path, ':h'))
+    \ " カーソルがディレクトリにある場合は, ツリーが展開されていたら閉じる. 展開されていなければ親ディレクトリに移動.
+    \ :else
+    \   :if defx#is_opened_tree()
+    \     :defx#do_action('close_tree')
+    \   :else
+	  \     :defx#do_action('cd', ['..'])
+    \   :endif
+    \ endif
 	  nnoremap <silent><buffer><expr> ~
 	  \ defx#do_action('cd')
 	  nnoremap <silent><buffer><expr> q
