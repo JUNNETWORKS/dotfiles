@@ -129,11 +129,6 @@ alias pbcopy='xsel --clipboard --input'
 
 # Git aliases
 alias g="git"
-# alias gs="git status"
-# alias ga="git add"
-# alias gc="git commit"
-# alias gd="git diff"
-# alias gitlog_branch="git log --first-parent --graph --abbrev-commit --decorate"
 
 # NeoVim
 alias nvim='~/Applications/nvim.appimage'
