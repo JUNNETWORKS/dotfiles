@@ -16,3 +16,6 @@ ln -sf ~/dotfiles/.tmux.powerline.conf ~/.tmux.powerline.conf
 
 # scripts
 ln -sf ~/dotfiles/scripts ~/scripts
+
+# ranger
+ln -sf ~/dotfiles/.config/ranger ~/.config/ranger
