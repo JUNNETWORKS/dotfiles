@@ -13,7 +13,7 @@
 nnoremap <silent>sf :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft
       \ -columns=indent:mark:icon:icons:filename:git:size
       \ -buffer-name=tab`tabpagenr()`
-      \ `expand(getcwd())` -search=`expand(getcwd())`<CR>
+      \ `expand(getcwd())` -search=`expand('%:p')`<CR>
       " \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 " nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
@@ -27,8 +27,12 @@ nnoremap <silent>fi :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft
 autocmd FileType defx call s:defx_my_settings()
 	function! s:defx_my_settings() abort
 	  " Define mappings
-	  nnoremap <silent><buffer><expr> <CR>
-	  \ defx#do_action('open')
+		nnoremap <silent><buffer><expr> <CR>
+		\ defx#is_directory() ?
+		\ defx#do_action('open_directory') :
+		\ defx#do_action('multi', ['drop', 'quit'])
+	  " nnoremap <silent><buffer><expr> <CR>
+	  " \ defx#do_action('open')
 	  nnoremap <silent><buffer><expr> c
 	  \ defx#do_action('copy')
 	  nnoremap <silent><buffer><expr> m
@@ -36,7 +40,10 @@ autocmd FileType defx call s:defx_my_settings()
 	  nnoremap <silent><buffer><expr> p
 	  \ defx#do_action('paste')
 	  nnoremap <silent><buffer><expr> l
-	  \ defx#do_action('open')
+		\ defx#is_directory() ?
+		\ defx#do_action('open_tree') :
+		\ defx#do_action('multi', ['drop', 'quit'])
+	  " \ defx#do_action('open')
 	  nnoremap <silent><buffer><expr> E
 	  \ defx#do_action('open', 'vsplit')
 	  nnoremap <silent><buffer><expr> P
@@ -69,6 +76,8 @@ autocmd FileType defx call s:defx_my_settings()
 	  nnoremap <silent><buffer><expr> ;
 	  \ defx#do_action('repeat')
 	  nnoremap <silent><buffer><expr> h
+    \ defx#is_opened_tree() ?
+    \ defx#do_action('close_tree') :
 	  \ defx#do_action('cd', ['..'])
 	  nnoremap <silent><buffer><expr> ~
 	  \ defx#do_action('cd')
