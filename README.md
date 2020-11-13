@@ -30,3 +30,4 @@ neovim が Python3 に依存しているとか, oh-my-zsh のテーマの agnost
 - [commitizen](https://github.com/commitizen/cz-cli)
 - [peco](https://github.com/peco/peco) CLI フィルタリングツール. .gitconfig 内で使ってる.
 - [gh](https://github.com/cli/cli) GitHub Official CLI Tool
+- [tig](https://github.com/jonas/tig) it make possible visualize git history beautiful
