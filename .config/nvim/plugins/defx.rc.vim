@@ -13,7 +13,7 @@
 nnoremap <silent>sf :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft
       \ -columns=indent:mark:icon:icons:filename:git:size
       \ -buffer-name=tab`tabpagenr()`
-      \ `expand(getcwd())` -search=`expand('%:p')`<CR>
+      \ `expand(getcwd())` -search=`expand(getcwd())`<CR>
       " \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 " nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>

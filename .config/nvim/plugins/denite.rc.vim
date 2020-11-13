@@ -67,7 +67,8 @@ function s:Dgrep(...)
   if a:0 > 0
     execute(':Denite -buffer-name=grep-buffer-denite grep -path='.a:1)
   else
-    let l:path = expand('%:p:h')
+    " let l:path = expand('%:p:h')
+    let l:path = expand(getcwd())
     if has_key(defx#get_candidate(), 'action__path')
       let l:path = fnamemodify(defx#get_candidate()['action__path'], ':p:h')
     endif
