@@ -32,3 +32,6 @@ neovim が Python3 に依存しているとか, oh-my-zsh のテーマの agnost
 - [gh](https://github.com/cli/cli) GitHub Official CLI Tool
 - [hub](https://github.com/github/hub)
 - [tig](https://github.com/jonas/tig) it make possible visualize git history beautiful
+- anyenv
+- anyenv-update
+- nodenv-default-packages

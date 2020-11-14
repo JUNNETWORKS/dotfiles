@@ -137,3 +137,8 @@ alias vim=nvim
 # tmux commands
 alias ide="~/scripts/ide.sh"
 export EDITOR="vim"
+
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
