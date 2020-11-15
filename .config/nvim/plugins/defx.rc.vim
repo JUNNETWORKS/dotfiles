@@ -79,17 +79,6 @@ autocmd FileType defx call s:defx_my_settings()
     " ファイルの時は親ディレクトリに移動. ディレクトリの時はディレクトリを閉じるか1つ上のディレクトリに移動する
 	  nnoremap <silent><buffer><expr> h
     \ defx#is_directory() ? (defx#is_opened_tree() ? defx#do_action('close_tree') : defx#do_action('cd', ['..'])) : defx#do_action('search', fnamemodify(defx#get_candidate().action__path, ':h'))
-	  " nnoremap <silent><buffer><expr> h
-    " \ :if defx#is_directory() 
-    " \ :  if defx#is_opened_tree() 
-    " \ :    call defx#do_action('close_tree') 
-    " \ :  else 
-    " \ :    call defx#do_action('cd', ['..']) 
-    " \ :  endif 
-    " \ :else 
-    " \ :  echo "go to parent dir" 
-    " \ :  call defx#do_action('search', fnamemodify(defx#get_candidate().action__path, ':h')) 
-    " \ :endif 
 	  nnoremap <silent><buffer><expr> ~
 	  \ defx#do_action('cd')
 	  nnoremap <silent><buffer><expr> q
@@ -108,22 +97,6 @@ autocmd FileType defx call s:defx_my_settings()
 	  \ defx#do_action('print')
 	  nnoremap <silent><buffer><expr> cd
 	  \ defx#do_action('change_vim_cwd')
-    " h キーのキーバインドのための関数
-    function! Defx_h_key()
-      let is_dir = defx#is_directory()
-      " カーソルがディレクトリにある場合は, ツリーが展開されていたら閉じる. 展開されていなければ親ディレクトリに移動.
-      if is_dir
-        if defx#is_opened_tree()
-          call defx#do_action('close_tree')
-        else
-          call defx#do_action('cd', ['..'])
-        endif
-      " カーソルがファイルにある場合は親ディレクトリにカーソルを移動する
-      else
-        echo "go to parent dir"
-        call defx#do_action('search', fnamemodify(defx#get_candidate().action__path, ':h'))
-      endif
-    endfunction
   endfunction
 
 call defx#custom#column('icon', {
