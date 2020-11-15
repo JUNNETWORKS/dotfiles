@@ -24,6 +24,7 @@ nnoremap <silent>fi :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft
       \ -buffer-name=tab`tabpagenr()`
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
+
 autocmd FileType defx call s:defx_my_settings()
 	function! s:defx_my_settings() abort
 	  " Define mappings
@@ -75,10 +76,9 @@ autocmd FileType defx call s:defx_my_settings()
 	  \ defx#do_action('toggle_ignored_files')
 	  nnoremap <silent><buffer><expr> ;
 	  \ defx#do_action('repeat')
+    " ファイルの時は親ディレクトリに移動. ディレクトリの時はディレクトリを閉じるか1つ上のディレクトリに移動する
 	  nnoremap <silent><buffer><expr> h
-    \ defx#is_opened_tree() ?
-    \ defx#do_action('close_tree') :
-	  \ defx#do_action('cd', ['..'])
+    \ defx#is_directory() ? (defx#is_opened_tree() ? defx#do_action('close_tree') : defx#do_action('cd', ['..'])) : defx#do_action('search', fnamemodify(defx#get_candidate().action__path, ':h'))
 	  nnoremap <silent><buffer><expr> ~
 	  \ defx#do_action('cd')
 	  nnoremap <silent><buffer><expr> q
@@ -97,7 +97,7 @@ autocmd FileType defx call s:defx_my_settings()
 	  \ defx#do_action('print')
 	  nnoremap <silent><buffer><expr> cd
 	  \ defx#do_action('change_vim_cwd')
-	endfunction
+  endfunction
 
 call defx#custom#column('icon', {
       \ 'directory_icon': '▸',
