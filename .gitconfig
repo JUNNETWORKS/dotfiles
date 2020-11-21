@@ -6,6 +6,10 @@
 	editor = nvim
 [push]
   default = simple
+[pager]
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
 [color]
   status = auto
   diff = auto
@@ -16,6 +20,7 @@
 [alias]
   a = "!git status --short | peco | awk '{print $2}' | xargs git add"
   d = diff
+  ds = diff --staged
   co = checkout
   ci = commit
   ca = commit -a
