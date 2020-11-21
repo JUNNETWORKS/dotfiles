@@ -5,7 +5,6 @@ module.exports = {
       value: 'feat',
       name: 'feat:     新機能',
       title: 'Features',
-      emoji: '🦈'
     },
     {
       value: 'fix',

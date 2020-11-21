@@ -23,3 +23,5 @@ ln -sf ~/dotfiles/.config/ranger ~/.config/ranger
 # git
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 
+# cz-suctomizable
+ln -sf ~/dotfiles/.config/cz-config.js ~/.config
