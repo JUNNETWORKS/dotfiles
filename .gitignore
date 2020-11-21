@@ -1,3 +1,5 @@
 # Vim
 .netrwhist
 .vim/sessions/
+
+node_modules/
