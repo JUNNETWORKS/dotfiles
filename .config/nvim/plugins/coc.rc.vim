@@ -136,6 +136,7 @@ let g:coc_global_extensions = [
   \ 'coc-styled-components',
   \ 'coc-prettier',
   \ 'coc-eslint',
+  \ 'coc-stylelint',
   \ 'coc-python',
   \ 'coc-go',
   \ 'coc-html',
