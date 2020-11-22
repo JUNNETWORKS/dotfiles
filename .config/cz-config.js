@@ -8,17 +8,12 @@ module.exports = {
     },
     {
       value: 'fix',
-      name: 'fix:      バグ修正',
+      name: 'fix:      修正  (バグに限らない広義な修正)',
       title: 'Bug Fixes'
     },
     {
-      value: 'HOTFIX',
-      name: 'HOTFIX:   致命的で緊急なバグ修正',
-      title: 'Critical hotfix'
-    },
-    {
       value: 'UI',
-      name: 'UI:       UIやスタイルの更新',
+      name: 'UI:       UIやスタイルの更新, UXの向上',
       title: 'UI'
     },
     {
@@ -27,9 +22,9 @@ module.exports = {
       title: 'Documentation'
     },
     {
-      value: 'style',
-      name: 'style:    フォーマットの変更\n            （コードの動作に影響しないスペース、フォーマット、セミコロンなどの変更）',
-      title: 'Styles'
+      value: 'move',
+      name: 'move:     ファイルやディレクトリの移動や名前変更など',
+      title: 'Move file or directory'
     },
     {
       value: 'texts',
@@ -37,18 +32,8 @@ module.exports = {
       title: 'Text and literals'
     },
     {
-      value: 'i18n',
-      name: 'i18n:     国際化',
-      title: 'Internationalization'
-    },
-    {
-      value: 'typo',
-      name: 'typo:     タイプミスの修正',
-      title: 'Typos'
-    },
-    {
       value: 'refactor',
-      name: 'refactor: リファクタリングのための変更\n            （機能追加やバグ修正を含まない変更）',
+      name: 'refactor: リファクタリングのための変更        （機能追加やバグ修正を含まない変更, フォーマットなど）',
       title: 'Code Refactoring'
     },
     {
@@ -57,33 +42,18 @@ module.exports = {
       title: 'Performance Improvements'
     },
     {
-      value: 'ux',
-      name: 'ux:       ユーザーエクスペリエンス/ユーザビリティの改善',
-      title: 'UX'
-    },
-    {
       value: 'test',
       name: 'test:     不足テストの追加や既存テストの修正',
       title: 'Tests'
     },
     {
       value: 'config',
-      name: 'config:   設定の追加や変更',
+      name: 'config:   設定の追加や変更 (ビルドシステムやパッケージマネージャなど)',
       title: 'Configuration'
     },
     {
-      value: 'build',
-      name: 'build:    ビルドシステムや外部依存に関する変更\n           （スコープ例: gulp, broccoli, npm）',
-      title: 'Builds'
-    },
-    {
-      value: 'ci',
-      name: 'ci:       CI用の設定やスクリプトに関する変更\n           （スコープ例:Travis, Circle, BrowserStack, SauceLabs)',
-      title: 'CI'
-    },
-    {
       value: 'chore',
-      name: 'chore:    その他の変更\n           （補助ツール、ドキュメント生成などのソースやテストの変更を含まない変更）',
+      name: 'chore:    その他の変更                        （補助ツール、ドキュメント生成などのソースやテストの変更を含まない変更）',
       title: 'Chores'
     },
     {
