@@ -12,6 +12,7 @@
 " 左側にウィンドウを開いてそこでcwdでファイルエクスプローラーを表示する
 nnoremap <silent>sf :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft
       \ -columns=indent:mark:icon:icons:filename:git:size
+      \ -show-ignored-files
       \ -buffer-name=tab`tabpagenr()`
       \ `expand(getcwd())` -search=`expand('%:p')`<CR>
       " \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
