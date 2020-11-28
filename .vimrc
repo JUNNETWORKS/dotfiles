@@ -28,6 +28,8 @@ set shell=zsh
 set backupskip=/tmp/*,/private/tmp/*
 " 外部で変更のあったファイルを自動で再読込
 set autoread
+" クリップボード連携
+set clipboard+=unnamedplus
 
 " incremental substitution (neovim)
 if has('nvim')
