@@ -22,9 +22,9 @@ module.exports = {
       title: 'Documentation'
     },
     {
-      value: 'move',
-      name: 'move:     ファイルやディレクトリの移動や名前変更など',
-      title: 'Move file or directory'
+      value: 'file',
+      name: 'file:     ファイルやディレクトリの移動,名前変更,削除など',
+      title: 'Move, Rename, Delete file or directory'
     },
     {
       value: 'texts',
