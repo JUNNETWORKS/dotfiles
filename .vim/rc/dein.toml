@@ -103,3 +103,19 @@ repo = 'luochen1990/rainbow'
 hook_add = '''
     let g:rainbow_active = 1
 '''
+
+# Multi cursor
+[[plugins]]
+repo = 'mg979/vim-visual-multi'
+rev = 'master'
+
+# Terminal Plugin
+[[plugins]]
+repo = "Shougo/deol.nvim"
+hook_add = '''
+" 【Ctrl + o】 float windowでターミナルを表示
+nnoremap <silent><Space>T :<C-u>Deol -split=floating<CR>
+" 【ESC】 ターミナルモードから抜ける
+tnoremap <ESC>   <C-\><C-n>
+'''
+

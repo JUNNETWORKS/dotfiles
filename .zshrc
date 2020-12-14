@@ -132,7 +132,6 @@ alias g="git"
 
 # NeoVim
 alias nvim='~/Applications/nvim.appimage'
-alias vim=nvim
 
 # tmux commands
 alias ide="~/scripts/ide.sh"
