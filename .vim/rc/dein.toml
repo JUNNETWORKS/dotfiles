@@ -119,3 +119,6 @@ nnoremap <silent><Space>T :<C-u>Deol -split=floating<CR>
 tnoremap <ESC>   <C-\><C-n>
 '''
 
+# window controller
+[[plugins]]
+repo = "simeji/winresizer"
