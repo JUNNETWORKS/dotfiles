@@ -30,6 +30,8 @@ set backupskip=/tmp/*,/private/tmp/*
 set autoread
 " クリップボード連携
 set clipboard+=unnamedplus
+" マウス有効
+set mouse=a
 
 " incremental substitution (neovim)
 if has('nvim')
