@@ -30,8 +30,6 @@ set backupskip=/tmp/*,/private/tmp/*
 set autoread
 " クリップボード連携
 set clipboard+=unnamedplus
-" マウス有効
-set mouse=a
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -101,6 +99,9 @@ autocmd FileType make setlocal noexpandtab tabstop=4
 " https://blog.delphinus.dev/2011/08/display-invisible-characters-on-vim.html
 set list
 set listchars=tab:»-,trail:-
+
+" %コマンドの拡張プラグイン
+runtime macros/matchit.vim
 "-------------------------------------------------------------------------------
 " Cursor line
 "-------------------------------------------------------------------------------

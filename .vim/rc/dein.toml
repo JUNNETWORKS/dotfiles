@@ -64,9 +64,10 @@ repo = 'jlanzarotta/bufexplorer'
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
-# 括弧の補完など
-# [[plugins]]
-# repo = 'jiangmiao/auto-pairs'
+# 括弧の置換など
+# http://vimblog.hatenablog.com/entry/vim_plugin_surround_vim
+[[plugins]]
+repo = 'tpope/vim-surround'
 
 # 他のプラグインがこれに依存してたりする
 [[plugins]]
