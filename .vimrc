@@ -29,7 +29,7 @@ set backupskip=/tmp/*,/private/tmp/*
 " 外部で変更のあったファイルを自動で再読込
 set autoread
 " クリップボード連携
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -72,7 +72,7 @@ endif
 " Add asterisks in block comments
 set formatoptions+=r
 
-set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
+set suffixesadd=.js,.jsx,.ts,.tsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
