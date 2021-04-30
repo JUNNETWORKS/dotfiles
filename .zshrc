@@ -118,12 +118,6 @@ PATH="$PATH:$GOROOT:$GOPATH:$GOBIN"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
-# 42 Tokyo
-FT_USER="jtanaka"
-FT_MAIL="jtanaka@student.42tokyo.jp"
-alias norminette="~/.norminette/norminette.rb"
-alias norminetteR="~/.norminette/norminette.rb -R CheckForbiddenSourceHeader"
-
 # copy to clip clipboard
 alias pbcopy='xsel --clipboard --input'
 
