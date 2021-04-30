@@ -135,3 +135,5 @@ export EDITOR="vim"
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
+# .NET
+export PATH="$HOME/.dotnet:$PATH"
