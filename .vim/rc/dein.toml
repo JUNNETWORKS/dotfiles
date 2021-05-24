@@ -121,5 +121,6 @@ tnoremap <ESC>   <C-\><C-n>
 '''
 
 # window controller
+# Ctrl-E でウィンドウの高さや幅を変更出来る
 [[plugins]]
 repo = "simeji/winresizer"
