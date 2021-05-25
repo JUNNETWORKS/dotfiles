@@ -85,14 +85,27 @@ if = '''!has('nvim')'''
 repo = 'neovim/python-client'
 if = '''!has('nvim')'''
 
-# 複数言語対応のIntellisense
+# # 複数言語対応のIntellisense
+# [[plugins]]
+# repo = "neoclide/coc.nvim"
+# merge = 0
+# rev = "release"
+# hook_add = """
+# source ~/.config/nvim/plugins/coc.rc.vim
+# """
+
+# LSP(Language Server Protocol)
 [[plugins]]
-repo = "neoclide/coc.nvim"
-merge = 0
-rev = "release"
-hook_add = """
-source ~/.config/nvim/plugins/coc.rc.vim
-"""
+repo = 'prabirshrestha/vim-lsp'
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+# LSP AutoCompletion
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+[[plugins]]
+repo = 'lighttiger2505/deoplete-vim-lsp'
+
 
 # Japanese Vim Help
 [[plugins]]
