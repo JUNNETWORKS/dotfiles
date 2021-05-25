@@ -1,4 +1,3 @@
-" https://github.com/craftzdog/dotfiles-public
 " 何かしらエラーが出たら: https://rcmdnk.com/blog/2017/07/18/computer-vim/
 " init autocmd
 autocmd!
@@ -141,7 +140,7 @@ function! ToggleWindowSize()
     let g:toggle_window_size = 1
   endif
 endfunction
-" M キーで最大化
+" sm キーで最大化
 nnoremap sm :call ToggleWindowSize()<CR>
 
 "-------------------------------------------------------------------------------
