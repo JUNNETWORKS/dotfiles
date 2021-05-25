@@ -88,6 +88,9 @@ if = '''!has('nvim')'''
 # LSP(Language Server Protocol)
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
+hook_add = """
+source ~/.config/nvim/plugins/lsp.rc.vim
+"""
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
 
