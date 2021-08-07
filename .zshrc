@@ -68,7 +68,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux aws yarn npm node adb celery heroku pep8 autopep8 pip pipenv python pylint django rust cargo docker docker-compose golang terraform kubectl gcloud rails)
+plugins=(git tmux aws yarn npm node adb celery heroku pep8 autopep8 pip pipenv python pylint django rust cargo docker docker-compose golang terraform kubectl gcloud rails poetry)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,6 +97,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Bashと同じように環境変数内の空白で区切る
+# https://www.wholenotism.com/blog/2021/03/zsh-space-expansion.html
+setopt SH_WORD_SPLIT
 
 # python
 alias python=python3
@@ -137,3 +141,6 @@ eval "$(anyenv init -)"
 
 # .NET
 export PATH="$HOME/.dotnet:$PATH"
+
+# Poetry (Python package manager)
+export PATH="$HOME/.poetry/bin:$PATH"
