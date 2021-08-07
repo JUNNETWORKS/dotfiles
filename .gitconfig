@@ -1,6 +1,6 @@
 [user]
 	email = junichi200123@gmail.com
-	name = Junichi Tanaka
+	name = Junichi Sasaki
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
