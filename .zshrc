@@ -68,7 +68,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux aws yarn npm node adb celery heroku pep8 autopep8 pip pipenv python pylint django rust cargo docker docker-compose golang terraform kubectl gcloud rails poetry)
+plugins=(git tmux aws yarn npm node adb celery heroku pep8 autopep8 pip pipenv python pylint rust cargo docker docker-compose golang terraform kubectl gcloud rails poetry)
 
 source $ZSH/oh-my-zsh.sh
 
