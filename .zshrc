@@ -68,7 +68,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux aws yarn npm node adb celery heroku pep8 autopep8 pip pipenv python pylint django rust cargo docker docker-compose golang terraform kubectl gcloud rails poetry)
+plugins=(git tmux aws yarn npm node adb celery heroku pep8 autopep8 pip pipenv python pylint rust docker docker-compose golang terraform kubectl gcloud rails)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,6 +97,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# User specific aliases and functions
+# Ctrl + S を押したときにXOFFによりキー入力が受け付けなくなるのを防ぐ
+stty stop undef
 
 # Bashと同じように環境変数内の空白で区切る
 # https://www.wholenotism.com/blog/2021/03/zsh-space-expansion.html
