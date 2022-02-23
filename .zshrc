@@ -123,7 +123,12 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
 # copy to clip clipboard
-alias pbcopy='xsel --clipboard --input'
+if hash clip.exe 2> /dev/null
+then
+	alias pbcopy='clip.exe'
+else
+	alias pbocpy='xsel --clipboard --input'
+fi
 
 # Git aliases
 alias g="git"
@@ -144,3 +149,6 @@ export PATH="$HOME/.dotnet:$PATH"
 
 # Poetry (Python package manager)
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# Open current directory on windows file explorer
+alias ee='explorer.exe .'
