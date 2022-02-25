@@ -157,6 +157,49 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # Open current directory on windows file explorer
 alias ee='explorer.exe .'
 
+# Node Version Manager configuration
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# ANSI colors
+ansi () {
+        echo 'Example: \\e[XXm string \\e[0m'
+        for ((i = 1; i <= 7; i++)) do
+                printf '\e[%dm%d\e[m ' $i $i
+        done
+        echo
+        echo 'Example: \\e[XXm string \\e[0m'
+        for ((i = 30; i <= 37; i++)) do
+                printf '\e[%dm%d\e[m ' $i $i
+        done
+        for ((i = 40; i <= 47; i++)) do
+                printf '\e[%dm%d\e[m ' $i $i
+        done
+        echo
+        echo 'Example: \\e[38;5;XXm string \\e[0m'
+        for ((i = 0; i < 16; i++)) do
+                for ((j = 0; j < 16; j++)) do
+                        hex=$(($i*16 + $j)) 
+                        printf '\e[38;5;%dm%03d\e[m ' $hex $hex
+                done
+                echo ""
+        done
+}
+
+# Man colorlize
+man() {
+        env \
+            LESS_TERMCAP_mb=$(printf "\e[1;33m") \
+            LESS_TERMCAP_md=$(printf "\e[1;33m") \
+            LESS_TERMCAP_me=$(printf "\e[0m") \
+            LESS_TERMCAP_se=$(printf "\e[0m") \
+            LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+            LESS_TERMCAP_ue=$(printf "\e[0m") \
+            LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+}
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
