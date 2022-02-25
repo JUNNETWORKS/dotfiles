@@ -1,5 +1,7 @@
 # Vim
 .netrwhist
 .vim/sessions/
+.vim/autoload/
+.vim/plugged/
 
 node_modules/

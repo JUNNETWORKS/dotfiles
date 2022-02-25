@@ -1,5 +1,11 @@
-" 何かしらエラーが出たら: https://rcmdnk.com/blog/2017/07/18/computer-vim/
-" init autocmd
+"-------------------------------------------------------------------------------
+" Vimの設定ファイルの大元
+"
+" なるべく分野や対象ごとに設定ファイルを分けてそれをsourceで読み込む形が良いかも
+"-------------------------------------------------------------------------------
+
+
+" init autocmd. autocmd の重複を避ける用. https://maku77.github.io/vim/settings/autocmd.html
 autocmd!
 " set script encoding
 scriptencoding utf-8
@@ -9,7 +15,6 @@ if !1 | finish | endif
 let mapleader = "\<Space>"
 set number
 set nocompatible
-syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=utf-8
 set title
@@ -22,30 +27,24 @@ set cmdheight=1
 set laststatus=2
 set scrolloff=10
 set expandtab
-"let loaded_matchparen = 1
-set shell=zsh
-set backupskip=/tmp/*,/private/tmp/*
-" 外部で変更のあったファイルを自動で再読込
-set autoread
-" クリップボード連携
-" set clipboard+=unnamedplus
+" normalモードでコマンド候補を表示する
+set wildmenu
+set wildmode=longest:full,full
 
-" incremental substitution (neovim)
-if has('nvim')
-set inccommand=split
-endif
-
-" Suppress appending <PasteStart> and <PasteEnd> when pasting
-set t_BE=
-
-set nosc noru nosm
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
-"set showmatch
-" How many tenths of a second to blink when matching brackets
-"set mat=2
+
 " Ignore case when searching
 set ignorecase
+
+" タブ文字などを見えるようにする
+" https://blog.delphinus.dev/2011/08/display-invisible-characters-on-vim.html
+set list
+set listchars=tab:»-,trail:-
+
+" 今いる行全体に下線が引かれる
+set cursorline
+
 " Be smart when using tabs ;)
 set smarttab
 " indents
@@ -59,70 +58,6 @@ set backspace=start,eol,indent
 " Finding files - Search down into subfolders
 set path+=**
 set wildignore+=*/node_modules/*
-
-" Turn off paste mode when leaving insert
-autocmd InsertLeave * set nopaste
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-
-" Add asterisks in block comments
-set formatoptions+=r
-
-set suffixesadd=.js,.jsx,.ts,.tsx,.json,.css,.less,.sass,.styl,.php,.py,.md
-
-autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
-autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
-
-" 拡張子によるFileType検出の追加
-" JavaScript
-au BufNewFile,BufRead *.es6 setf javascript
-" TypeScript
-au BufNewFile,BufRead *.tsx setf typescript
-" Markdown
-au BufNewFile,BufRead *.md set filetype=markdown
-" Flow
-au BufNewFile,BufRead *.flow set filetype=javascript
-
-" 言語ごとのタブの設定
-" 42用にC言語関連はスペースではなくタブ, タブの表示幅は4文字.
-autocmd FileType c setlocal noexpandtab tabstop=4
-autocmd FileType cpp setlocal noexpandtab tabstop=4
-autocmd FileType h setlocal noexpandtab tabstop=4
-autocmd FileType make setlocal noexpandtab tabstop=4
-
-" タブ文字などを見えるようにする
-" https://blog.delphinus.dev/2011/08/display-invisible-characters-on-vim.html
-set list
-set listchars=tab:»-,trail:-
-
-" %コマンドの拡張プラグイン
-runtime macros/matchit.vim
-"-------------------------------------------------------------------------------
-" Cursor line
-"-------------------------------------------------------------------------------
-
-set cursorline
-"set cursorcolumn
-
-" Set cursor line color on visual mode
-highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-
-highlight LineNr       cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
-
-augroup BgHighlight
-  autocmd!
-  autocmd WinEnter * set cul
-  autocmd WinLeave * set nocul
-augroup END
-
-if &term =~ "screen"
-  autocmd BufEnter * if bufname("") !~ "^?[A-Za-z0-9?]*://" | silent! exe '!echo -n "\ek[`hostname`:`basename $PWD`/`basename %`]\e\\"' | endif
-  autocmd VimLeave * silent!  exe '!echo -n "\ek[`hostname`:`basename $PWD`]\e\\"'
-endif
 
 
 "-------------------------------------------------------------------------------
@@ -144,86 +79,41 @@ endfunction
 nnoremap sm :call ToggleWindowSize()<CR>
 
 "-------------------------------------------------------------------------------
-" Other plugins
+" vim の標準ファイラの netrw の設定
+" https://qiita.com/gorilla0513/items/bf2f78dfec67242f5bcf
 "-------------------------------------------------------------------------------
 
-" vim-go
-let g:go_disable_autoinstall = 1
-
-" vim-json
-let g:vim_json_syntax_conceal = 0
-
-" Status line
-if !exists('*fugitive#statusline')
-  set statusline=%F\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}[L%l/%L,C%03v]
-  set statusline+=%=
-  set statusline+=%{fugitive#statusline()}
-endif
-
-" JSX
-let g:jsx_ext_required = 0
-
-" Tern
-" Disable auto preview window
-set completeopt-=preview
-
-" localvimrc
-let g:localvimrc_ask = 0
+filetype plugin on
+" ファイルツリーの表示形式、1にするとls -laのような表示になります
+let g:netrw_liststyle=1
+" ヘッダを非表示にする
+let g:netrw_banner=0
+" サイズを(K,M,G)で表示する
+let g:netrw_sizestyle="H"
+" 日付フォーマットを yyyy/mm/dd(曜日) hh:mm:ss で表示する
+let g:netrw_timefmt="%Y/%m/%d(%a) %H:%M:%S"
+" プレビューウィンドウを垂直分割で表示する
+let g:netrw_preview=1
 
 "-------------------------------------------------------------------------------
-" Dein
+" Colorscheme
 "-------------------------------------------------------------------------------
-
-let s:dein_dir = expand('~/.cache/dein')
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
-  let g:rc_dir = expand('~/.vim/rc')
-  let s:toml = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  call dein#end()
-  call dein#save_state()
-endif
-if dein#check_install()
-  call dein#install()
-endif
-
-filetype plugin indent on
-
-"-------------------------------------------------------------------------------
-" DevIcons
-"-------------------------------------------------------------------------------
-
-set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete\ Windows\ Compatible:h11
-let g:webdevicons_enable_vimfiler = 1
-
-"-------------------------------------------------------------------------------
-" Color scheme
-"-------------------------------------------------------------------------------
-
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
 colorscheme solarized
+
+" status line
+let g:airline#extensions#tabline#enabled = 1
 
 "-------------------------------------------------------------------------------
 " imports
 "-------------------------------------------------------------------------------
 
-if has("unix")
-  let s:uname = system("uname -s")
-  " Do Mac stuff
-  if s:uname == "Darwin\n"
-    source ~/.vimrc.osx
-  endif
-endif
+" Key map
+source ~/.vim/.vimrc.maps
 
-source ~/.vimrc.maps
-source ~/.vimrc.lightline
-
-" 42Tokyo
-source ~/.vim/plugin/stdheader.vim
-
-set exrc
-
+" Plugin
+source ~/.vim/plugins.vim
+source ~/.vim/config/lsp.vim
+source ~/.vim/config/vsnip.vim
