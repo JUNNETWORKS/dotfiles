@@ -109,18 +109,19 @@ setopt SH_WORD_SPLIT
 # python
 alias python=python3
 # pyenv
-export PATH="${HOME}/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# export PATH="${HOME}/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 # pipenv
 PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
 PATH="$PATH:$PYTHON_BIN_PATH"
 
 # golang
 GOROOT="/usr/local/go"
-GOPATH="$HOME/go"
 GOBIN="$GOROOT/bin"
-PATH="$PATH:$GOROOT:$GOPATH:$GOBIN"
+GOPATH="$HOME/go"
+GOPATHBIN="$GOROOT/bin"
+PATH="$PATH:$GOROOT:$GOPATH:$GOPATHBIN:$GOBIN"
 
 # terraform
 autoload -U +X bashcompinit && bashcompinit
@@ -145,8 +146,8 @@ alias ide="~/scripts/ide.sh"
 export EDITOR="vim"
 
 # anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+# export PATH="$HOME/.anyenv/bin:$PATH"
+# eval "$(anyenv init -)"
 
 # .NET
 export PATH="$HOME/.dotnet:$PATH"

@@ -4,6 +4,8 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
+	autocrlf = false
+	eol = lf
 [push]
   default = simple
 [pager]
