@@ -2,7 +2,7 @@
 # zsh (require "oh-my-zsh")
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 
-# neovim
+# vim
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.vim ~/.vim
 
