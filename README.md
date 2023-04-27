@@ -7,7 +7,6 @@
 ## requirement
 
 - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
-- [neovim](https://github.com/neovim/neovim)
 
 ## How to use
 
@@ -24,9 +23,7 @@ neovim が Python3 に依存しているとか, oh-my-zsh のテーマの agnost
 - git
 - zsh
 - oh-my-zsh
-- neovim
 - [Powerline fonts](https://github.com/powerline/fonts) oh-my-zsh の theme 用
-- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) neovim の dfsx プラグイン用
 - [commitizen](https://github.com/commitizen/cz-cli)
 - [cz-customizable](https://github.com/leoforfree/cz-customizable) commitizen の設定
 - [peco](https://github.com/peco/peco) CLI フィルタリングツール. .gitconfig 内で使ってる.
@@ -58,3 +55,8 @@ echo '{ "path": "cz-customizable" }' > ~/.czrc
 ```
 
 [Conventional commit messages as a global utility](https://github.com/commitizen/cz-cli#conventional-commit-messages-as-a-global-utility)
+
+## References
+
+- [iTerm2+Powerlineを簡単に設定する方法](https://qiita.com/Sasakky/items/abf7fdaa025fe82e581a)
+
