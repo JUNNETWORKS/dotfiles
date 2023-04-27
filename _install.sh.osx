@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# WIP: This script install softwares below
+#
+# brew
+# git
+# oh-my-zsh
+# powerline fonts
+# tmux
+# bat
+# htop

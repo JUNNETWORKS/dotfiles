@@ -1,4 +1,8 @@
 #!/bin/sh
+
+# install dependencies
+./_install.sh.osx
+
 # zsh (require "oh-my-zsh")
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 
