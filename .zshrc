@@ -145,9 +145,11 @@ alias nvim='~/Applications/nvim.appimage'
 alias ide="~/scripts/ide.sh"
 export EDITOR="vim"
 
-# anyenv
+# env
 # export PATH="$HOME/.anyenv/bin:$PATH"
 # eval "$(anyenv init -)"
+eval "$(goenv init -)"
+eval "$(nodenv init -)"
 
 # .NET
 export PATH="$HOME/.dotnet:$PATH"
