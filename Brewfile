@@ -22,4 +22,4 @@ cask "sequel-ace"
 cask "slack"
 cask "zoom"
 
-441258766   Magnet  (2.11.0)
+mas "Magnet", id: 441258766
