@@ -25,3 +25,11 @@ ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 
 # cz-suctomizable
 ln -sf ~/dotfiles/.config/cz-config.js ~/.config
+
+# install libraries by brew (if os is macos)
+# https://kakakakakku.hatenablog.com/entry/2020/09/17/124653
+if uname -o | grep -q "Darwin" ; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  source ~/.zshrc
+  brew bundle --file ~/dotfiles/Brewfile
+fi
