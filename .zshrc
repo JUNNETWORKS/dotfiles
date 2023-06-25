@@ -1,3 +1,12 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
 # ========== Start User specific aliases and functions ==========
 
 # Ctrl + S を押したときにXOFFによりキー入力が受け付けなくなるのを防ぐ
@@ -7,8 +16,6 @@ stty stop undef
 # https://www.wholenotism.com/blog/2021/03/zsh-space-expansion.html
 setopt SH_WORD_SPLIT
 
-# python
-alias python=python3
 # pyenv
 # export PATH="${HOME}/.pyenv/bin:$PATH"
 # eval "$(pyenv init -)"
@@ -38,9 +45,6 @@ fi
 
 # Git aliases
 alias g="git"
-
-# NeoVim
-alias nvim='~/Applications/nvim.appimage'
 
 # tmux commands
 alias ide="~/scripts/ide.sh"

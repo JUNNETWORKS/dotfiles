@@ -1,10 +1,12 @@
-#!/bin/sh
+#!/bin/zsh
+set -euCx
 
-# install dependencies
-./_install.sh.osx
+# download powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
-# zsh (require "oh-my-zsh")
+# zsh (based on powerlevel10k)
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
+ln -sf ~/dotfiles/.p10k.zsh ~/.p10k.zsh
 
 # vim
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
@@ -29,7 +31,6 @@ ln -sf ~/dotfiles/.config/cz-config.js ~/.config
 # install libraries by brew (if os is macos)
 # https://kakakakakku.hatenablog.com/entry/2020/09/17/124653
 if uname -o | grep -q "Darwin" ; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  source ~/.zshrc
-  brew bundle --file ~/dotfiles/Brewfile
+  # install dependencies
+  ./_install.sh.osx
 fi
