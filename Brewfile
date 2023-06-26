@@ -21,6 +21,4 @@ cask "mysqlworkbench"
 cask "notion"
 cask "sequel-ace"
 cask "slack"
-cask "zoom"
-
-mas "Magnet", id: 441258766
+cask "visual-studio-code"

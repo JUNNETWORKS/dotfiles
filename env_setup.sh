@@ -1,8 +1,14 @@
 #!/bin/zsh
-set -euCx
+set -euC
 
 # download powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+if [ -d "~/powerlevel10k" ]; then
+  # Take action if DIR does not exist. #
+  echo "Install powerlevel10k"
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+fi
+
+echo create symlink for zshrc, p10k, vim, tmux, scripts, ranger, git
 
 # zsh (based on powerlevel10k)
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
@@ -28,9 +34,7 @@ ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 # cz-suctomizable
 ln -sf ~/dotfiles/.config/cz-config.js ~/.config
 
-# install libraries by brew (if os is macos)
-# https://kakakakakku.hatenablog.com/entry/2020/09/17/124653
 if uname -o | grep -q "Darwin" ; then
   # install dependencies
-  ./_install.sh.osx
+  exec ./_install.sh.osx
 fi

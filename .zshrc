@@ -16,6 +16,9 @@ stty stop undef
 # https://www.wholenotism.com/blog/2021/03/zsh-space-expansion.html
 setopt SH_WORD_SPLIT
 
+# Brew
+PATH="$PATH:/opt/homebrew/bin"
+
 # pyenv
 # export PATH="${HOME}/.pyenv/bin:$PATH"
 # eval "$(pyenv init -)"
