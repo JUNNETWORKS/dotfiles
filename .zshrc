@@ -10,7 +10,9 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # ========== Start User specific aliases and functions ==========
 
 # Ctrl + S を押したときにXOFFによりキー入力が受け付けなくなるのを防ぐ
-stty stop undef
+if ! uname -o | grep -q "Darwin" ; then
+  stty stop undef
+fi
 
 # Bashと同じように環境変数内の空白で区切る
 # https://www.wholenotism.com/blog/2021/03/zsh-space-expansion.html
@@ -35,8 +37,8 @@ GOPATHBIN="$GOROOT/bin"
 PATH="$PATH:$GOROOT:$GOPATH:$GOPATHBIN:$GOBIN"
 
 # terraform
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /usr/local/bin/terraform terraform
 
 # copy to clip clipboard
 if hash clip.exe 2> /dev/null
