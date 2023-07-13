@@ -113,6 +113,9 @@ man() {
             man "$@"
 }
 
+# ========== End Start User specific aliases and functions ==========
+
+# ========== Start zinit ==========
 # searching through history by up/down arrow
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
@@ -121,9 +124,22 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
-# ========== End Start User specific aliases and functions ==========
+# スラッシュを単語の区切りとみなす https://zenn.dev/ttskch/articles/fb5a700b37a504
+autoload -Uz select-word-style
+select-word-style bash
+WORDCHARS='.-'
 
+# 補完をcase-insensitiveに
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# 補完候補をカーソルで選択できるように
+autoload -U compinit
+compinit
+zstyle ':completion:*:default' menu select=1
+
+# load zsh plugins
 source ~/dotfiles/.zsh-plugins.zsh
+# ========== End zinit ==========
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
