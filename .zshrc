@@ -11,6 +11,8 @@ fi
 if ! uname -o | grep -q "Darwin" ; then
   stty stop undef
 fi
+# C-a のようなMacのemacライクなショートカットキーをtmuxで使えるようにする
+bindkey -e
 
 # Bashと同じように環境変数内の空白で区切る
 # https://www.wholenotism.com/blog/2021/03/zsh-space-expansion.html
