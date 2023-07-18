@@ -113,9 +113,9 @@ man() {
             man "$@"
 }
 
-# ========== End Start User specific aliases and functions ==========
+# ========== End User specific aliases and functions ==========
 
-# ========== Start zinit ==========
+# ========== Start basic ==========
 # searching through history by up/down arrow
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
@@ -123,6 +123,9 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+
+# コメントを履歴に残さない
+setopt interactivecomments
 
 # スラッシュを単語の区切りとみなす https://zenn.dev/ttskch/articles/fb5a700b37a504
 autoload -Uz select-word-style
@@ -137,9 +140,25 @@ autoload -U compinit
 compinit
 zstyle ':completion:*:default' menu select=1
 
-# load zsh plugins
+# 履歴ファイルの保存先
+export HISTFILE=${HOME}/.zsh_history
+# メモリに保存される履歴の件数
+export HISTSIZE=1000
+# 履歴ファイルに保存される履歴の件数
+export SAVEHIST=100000
+# ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
+setopt hist_ignore_all_dups
+# 開始と終了を記録
+setopt EXTENDED_HISTORY
+# 他のzshと履歴を共有
+setopt inc_append_history
+setopt share_history
+
+# ========== End basic ==========
+
+# ========== Start load zinit ==========
 source ~/dotfiles/.zsh-plugins.zsh
-# ========== End zinit ==========
+# ========== End load zinit ==========
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

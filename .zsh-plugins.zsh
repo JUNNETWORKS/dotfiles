@@ -7,6 +7,10 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
         print -P "%F{160} The clone has failed.%f%b"
 fi
 
+# --------------------
+# completion
+# --------------------
+
 autoload -Uz compinit && compinit
 
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
