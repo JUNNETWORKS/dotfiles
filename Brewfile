@@ -13,6 +13,7 @@ brew "nodenv"
 brew "peco"
 brew "tmux"
 brew "watch"
+brew "zsh-completions"
 
 cask "google-chrome"
 cask "google-japanese-ime"
