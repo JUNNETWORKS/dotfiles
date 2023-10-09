@@ -58,8 +58,14 @@ export EDITOR="vim"
 # env
 # export PATH="$HOME/.anyenv/bin:$PATH"
 # eval "$(anyenv init -)"
-eval "$(goenv init -)"
-eval "$(nodenv init -)"
+if command -v goenv > /dev/null 1>/dev/null; then
+  eval "$(goenv init -)"
+fi
+
+if command -v nodenv > /dev/null 1>/dev/null; then
+  eval "$(nodenv init -)"
+fi
+
 
 # .NET
 export PATH="$HOME/.dotnet:$PATH"
