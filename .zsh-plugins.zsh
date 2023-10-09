@@ -22,16 +22,12 @@ autoload -Uz _zinit
 # from oh-my-zsh
 
 zi snippet OMZP::git
-zi snippet OMZP::tmux
 zi snippet OMZP::aws
 zi snippet OMZP::yarn
 zi snippet OMZP::npm
 zi snippet OMZP::node
 zi snippet OMZP::pip
 zi snippet OMZP::dotenv
-zi snippet OMZP::rust
-zi snippet OMZP::docker
-zi snippet OMZP::docker-compose
 zi snippet OMZP::golang
 zi snippet OMZP::terraform
 zi snippet OMZP::kubectl
