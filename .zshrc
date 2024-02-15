@@ -119,6 +119,11 @@ man() {
             man "$@"
 }
 
+mermaid-editor() {
+  echo "Start mermaid editor on http://localhost:8080"
+  docker run --publish 8000:8080 ghcr.io/mermaid-js/mermaid-live-editor
+}
+
 # ========== End User specific aliases and functions ==========
 
 # ========== Start basic ==========
@@ -172,3 +177,12 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/junichi.sasaki/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/junichi.sasaki/Applications/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/junichi.sasaki/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/junichi.sasaki/Applications/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
