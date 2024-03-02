@@ -189,3 +189,10 @@ if [ -f '/Users/junichi.sasaki/Applications/google-cloud-sdk/completion.zsh.inc'
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Rust package manager
+export PATH="$PATH:$HOME/.cargo/env"
+
+# Python package manager
+export PATH="$PATH:$HOME/.rye/env"
+
