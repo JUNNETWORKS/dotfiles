@@ -5,3 +5,5 @@
 .vim/plugged/
 
 node_modules/
+
+.DS_Store
