@@ -75,7 +75,10 @@ if command -v rbenv > /dev/null 1>/dev/null; then
   eval "$(rbenv init -)"
 fi
 
-
+# Python package manager
+if [ -f "$HOME/.rye/env" ]; then
+  source "$HOME/.rye/env"
+fi
 
 # .NET
 export PATH="$HOME/.dotnet:$PATH"
@@ -199,7 +202,4 @@ if [ -f '/Users/junichi.sasaki/Applications/google-cloud-sdk/completion.zsh.inc'
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Python package manager
-source "$HOME/.rye/env"
 
