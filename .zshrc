@@ -36,6 +36,11 @@ GOPATH="$HOME/go"
 GOPATHBIN="$GOPATH/bin"
 PATH="$PATH:$GOROOT:$GOPATH:$GOPATHBIN:$GOBIN"
 
+# Flutter
+FLUTTER_ROOT="$HOME/flutter"
+FLUTTER_BIN="$FLUTTER_ROOT/bin"
+PATH="$PATH:$FLUTTER_ROOT:$FLUTTER_BIN"
+
 # terraform
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /usr/local/bin/terraform terraform
@@ -65,6 +70,11 @@ fi
 if command -v nodenv > /dev/null 1>/dev/null; then
   eval "$(nodenv init -)"
 fi
+
+if command -v rbenv > /dev/null 1>/dev/null; then
+  eval "$(rbenv init -)"
+fi
+
 
 
 # .NET
