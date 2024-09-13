@@ -201,6 +201,7 @@ if [ -f "/Users/$USER/Applications/google-cloud-sdk/path.zsh.inc" ]; then . "/Us
 if [ -f "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc" ]; then . "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc"; fi
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
+# ~/.fzf.zsh は fzf インストール時に生成されるファイル
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
