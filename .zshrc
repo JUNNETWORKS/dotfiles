@@ -195,11 +195,17 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/junichi.sasaki/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/junichi.sasaki/Applications/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "/Users/$USER/Applications/google-cloud-sdk/path.zsh.inc" ]; then . "/Users/$USER/Applications/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/junichi.sasaki/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/junichi.sasaki/Applications/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc" ]; then . "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc"; fi
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f "/Users/$USER/.dart-cli-completion/zsh-config.zsh" ]] && . "/Users/$USER/.dart-cli-completion/zsh-config.zsh" || true
+## [/Completion]
 
