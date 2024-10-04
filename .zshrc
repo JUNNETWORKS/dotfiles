@@ -201,6 +201,13 @@ if [ -f "/Users/$USER/Applications/google-cloud-sdk/path.zsh.inc" ]; then . "/Us
 if [ -f "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc" ]; then . "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc"; fi
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
+# Metasploit
+export PATH="/opt/metasploit-framework/bin:$PATH"
+
+# PostgreSQL executable files
+# brew install postgresql@15
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
 # ~/.fzf.zsh は fzf インストール時に生成されるファイル
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -209,4 +216,3 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f "/Users/$USER/.dart-cli-completion/zsh-config.zsh" ]] && . "/Users/$USER/.dart-cli-completion/zsh-config.zsh" || true
 ## [/Completion]
-
