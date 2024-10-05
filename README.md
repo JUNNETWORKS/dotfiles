@@ -12,8 +12,3 @@ git clone <this_repository_url>
 cd dotfiles
 ./env_setup.sh
 ```
-
-## TODO
-
-neovim が Python3 に依存しているとか, oh-my-zsh のテーマの agnoster のためのフォントなどの依存関係の解決は何もしてないので出来るようにしたい.
-
