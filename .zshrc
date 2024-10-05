@@ -18,38 +18,13 @@ bindkey -e
 # https://www.wholenotism.com/blog/2021/03/zsh-space-expansion.html
 setopt SH_WORD_SPLIT
 
-# Brew
-PATH="$PATH:/opt/homebrew/bin"
-
-# pyenv
-# export PATH="${HOME}/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-# pipenv
-PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
-PATH="$PATH:$PYTHON_BIN_PATH"
-
-# golang
-GOROOT="/usr/local/go"
-GOBIN="$GOROOT/bin"
-GOPATH="$HOME/go"
-GOPATHBIN="$GOPATH/bin"
-PATH="$PATH:$GOROOT:$GOPATH:$GOPATHBIN:$GOBIN"
-
-# Flutter
-FLUTTER_ROOT="$HOME/flutter"
-FLUTTER_BIN="$FLUTTER_ROOT/bin"
-PATH="$PATH:$FLUTTER_ROOT:$FLUTTER_BIN"
-
-# terraform
-# autoload -U +X bashcompinit && bashcompinit
-# complete -o nospace -C /usr/local/bin/terraform terraform
-
 # copy to clip clipboard
 if hash clip.exe 2> /dev/null
 then
+  # Windows
 	alias pbcopy='clip.exe'
 else
+  # Linux
 	alias pbocpy='xsel --clipboard --input'
 fi
 
@@ -75,7 +50,7 @@ if command -v rbenv > /dev/null 1>/dev/null; then
   eval "$(rbenv init -)"
 fi
 
-# Python package manager
+# Rye: Python package manager
 if [ -f "$HOME/.rye/env" ]; then
   source "$HOME/.rye/env"
 fi
@@ -83,16 +58,56 @@ fi
 # .NET
 export PATH="$HOME/.dotnet:$PATH"
 
-# Poetry (Python package manager)
-export PATH="$HOME/.poetry/bin:$PATH"
+# Python
+PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
+PATH="$PATH:$PYTHON_BIN_PATH"
 
-# Open current directory on windows file explorer
-alias ee='explorer.exe .'
+# golang
+GOROOT="/usr/local/go"
+GOBIN="$GOROOT/bin"
+GOPATH="$HOME/go"
+GOPATHBIN="$GOPATH/bin"
+PATH="$PATH:$GOROOT:$GOPATH:$GOPATHBIN:$GOBIN"
+
+# Flutter
+FLUTTER_ROOT="$HOME/flutter"
+FLUTTER_BIN="$FLUTTER_ROOT/bin"
+PATH="$PATH:$FLUTTER_ROOT:$FLUTTER_BIN"
 
 # Node Version Manager configuration
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Volta: JavaScript Tool Manager
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Metasploit
+export PATH="/opt/metasploit-framework/bin:$PATH"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # MacOS
+
+  # Brew
+  PATH="$PATH:/opt/homebrew/bin"
+
+  # The next line enables shell command completion for gcloud.
+  if [ -f "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc" ]; then . "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc"; fi
+  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+  # PostgreSQL executable files
+  # brew install postgresql@15
+  export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+  # The next line updates PATH for the Google Cloud SDK.
+  if [ -f "/Users/$USER/Applications/google-cloud-sdk/path.zsh.inc" ]; then . "/Users/$USER/Applications/google-cloud-sdk/path.zsh.inc"; fi
+elif [[ "$OSTYPE" == "msys"* ]]; then
+  # Windows
+  # Open current directory on windows file explorer
+  alias ee='explorer.exe .'
+fi
+
 
 # ANSI colors
 ansi () {
@@ -185,34 +200,17 @@ source ~/dotfiles/.zsh-plugins.zsh
 # ========== End load zinit ==========
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# SDKMAN: Software Development Kit Manager
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "/Users/$USER/Applications/google-cloud-sdk/path.zsh.inc" ]; then . "/Users/$USER/Applications/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc" ]; then . "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc"; fi
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-# Metasploit
-export PATH="/opt/metasploit-framework/bin:$PATH"
-
-# PostgreSQL executable files
-# brew install postgresql@15
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-
 # ~/.fzf.zsh は fzf インストール時に生成されるファイル
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f "/Users/$USER/.dart-cli-completion/zsh-config.zsh" ]] && . "/Users/$USER/.dart-cli-completion/zsh-config.zsh" || true
-## [/Completion]
+
