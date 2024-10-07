@@ -86,6 +86,9 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # Metasploit
 export PATH="/opt/metasploit-framework/bin:$PATH"
 
+# Softwares installed by pipx
+export PATH="$HOME/.local/bin:$PATH"
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # MacOS
 
