@@ -217,3 +217,15 @@ export SDKMAN_DIR="$HOME/.sdkman"
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f "/Users/$USER/.dart-cli-completion/zsh-config.zsh" ]] && . "/Users/$USER/.dart-cli-completion/zsh-config.zsh" || true
 
+
+# bun completions
+[ -s "/Users/junichi.sasaki/.bun/_bun" ] && source "/Users/junichi.sasaki/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# mise
+# note this assumes mise is located at ~/.local/bin/mise
+# which is what https://mise.run does by default
+eval "$(~/.local/bin/mise activate zsh)"
