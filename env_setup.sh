@@ -30,6 +30,7 @@ ln -sf ~/dotfiles/.config/ranger ~/.config/ranger
 
 # git
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/git/.gitignore_global ~/.gitignore_global
 
 # cz-suctomizable
 ln -sf ~/dotfiles/.config/cz-config.js ~/.config
