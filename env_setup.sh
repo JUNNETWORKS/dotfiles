@@ -35,6 +35,9 @@ ln -sf ~/dotfiles/git/.gitignore_global ~/.gitignore_global
 # cz-suctomizable
 ln -sf ~/dotfiles/.config/cz-config.js ~/.config
 
+# claude code
+ln -sf ~/dotfiles/.claude/CLAUDE.md ~/.claude/CLAUDE.md
+
 if uname -o | grep -q "Darwin" ; then
   # install dependencies
   exec ./_install.sh.osx
