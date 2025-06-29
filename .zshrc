@@ -8,7 +8,7 @@ fi
 # ========== Start User specific aliases and functions ==========
 
 # Ctrl + S を押したときにXOFFによりキー入力が受け付けなくなるのを防ぐ
-if ! uname -o | grep -q "Darwin" ; then
+if ! uname -o | grep -q "Darwin" && [[ -t 0 ]]; then
   stty stop undef
 fi
 # C-a のようなMacのemacライクなショートカットキーをtmuxで使えるようにする
