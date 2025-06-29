@@ -35,79 +35,6 @@ alias g="git"
 alias ide="~/scripts/ide.sh"
 export EDITOR="vim"
 
-# env
-# export PATH="$HOME/.anyenv/bin:$PATH"
-# eval "$(anyenv init -)"
-if command -v goenv > /dev/null 1>/dev/null; then
-  eval "$(goenv init -)"
-fi
-
-if command -v nodenv > /dev/null 1>/dev/null; then
-  eval "$(nodenv init -)"
-fi
-
-if command -v rbenv > /dev/null 1>/dev/null; then
-  eval "$(rbenv init -)"
-fi
-
-# Rye: Python package manager
-if [ -f "$HOME/.rye/env" ]; then
-  source "$HOME/.rye/env"
-fi
-
-# .NET
-export PATH="$HOME/.dotnet:$PATH"
-
-# Python
-PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
-PATH="$PATH:$PYTHON_BIN_PATH"
-
-# golang
-GOROOT="/usr/local/go"
-GOBIN="$GOROOT/bin"
-GOPATH="$HOME/go"
-GOPATHBIN="$GOPATH/bin"
-PATH="$PATH:$GOROOT:$GOPATH:$GOPATHBIN:$GOBIN"
-
-# Flutter
-FLUTTER_ROOT="$HOME/flutter"
-FLUTTER_BIN="$FLUTTER_ROOT/bin"
-PATH="$PATH:$FLUTTER_ROOT:$FLUTTER_BIN"
-
-# Node Version Manager configuration
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Metasploit
-export PATH="/opt/metasploit-framework/bin:$PATH"
-
-# Softwares installed by pipx
-export PATH="$HOME/.local/bin:$PATH"
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  # MacOS
-
-  # Brew
-  PATH="$PATH:/opt/homebrew/bin"
-
-  # The next line enables shell command completion for gcloud.
-  if [ -f "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc" ]; then . "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc"; fi
-  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-  # PostgreSQL executable files
-  # brew install postgresql@15
-  export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-
-  # The next line updates PATH for the Google Cloud SDK.
-  if [ -f "/Users/$USER/Applications/google-cloud-sdk/path.zsh.inc" ]; then . "/Users/$USER/Applications/google-cloud-sdk/path.zsh.inc"; fi
-elif [[ "$OSTYPE" == "msys"* ]]; then
-  # Windows
-  # Open current directory on windows file explorer
-  alias ee='explorer.exe .'
-fi
-
-
 # ANSI colors
 ansi () {
         echo 'Example: \\e[XXm string \\e[0m'
@@ -153,6 +80,69 @@ mermaid-editor() {
 
 # ========== End User specific aliases and functions ==========
 
+# ========== Start update $PATH ==========
+
+# .NET
+export PATH="$HOME/.dotnet:$PATH"
+
+# Python
+PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
+PATH="$PATH:$PYTHON_BIN_PATH"
+
+# golang
+GOROOT="/usr/local/go"
+GOBIN="$GOROOT/bin"
+GOPATH="$HOME/go"
+GOPATHBIN="$GOPATH/bin"
+PATH="$PATH:$GOROOT:$GOPATH:$GOPATHBIN:$GOBIN"
+
+# Flutter
+FLUTTER_ROOT="$HOME/flutter"
+FLUTTER_BIN="$FLUTTER_ROOT/bin"
+PATH="$PATH:$FLUTTER_ROOT:$FLUTTER_BIN"
+
+# Metasploit
+export PATH="/opt/metasploit-framework/bin:$PATH"
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# bun completions
+[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# mise
+# note this assumes mise is located at ~/.local/bin/mise
+# which is what https://mise.run does by default
+eval "$(~/.local/bin/mise activate zsh)"
+
+# OS Specific
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # MacOS
+
+  # Brew
+  PATH="$PATH:/opt/homebrew/bin"
+
+  # The next line enables shell command completion for gcloud.
+  if [ -f "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc" ]; then . "/Users/$USER/Applications/google-cloud-sdk/completion.zsh.inc"; fi
+  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+  # PostgreSQL executable files
+  # brew install postgresql@15
+  export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+  # The next line updates PATH for the Google Cloud SDK.
+  if [ -f "/Users/$USER/Applications/google-cloud-sdk/path.zsh.inc" ]; then . "/Users/$USER/Applications/google-cloud-sdk/path.zsh.inc"; fi
+elif [[ "$OSTYPE" == "msys"* ]]; then
+  # Windows
+  # Open current directory on windows file explorer
+  alias ee='explorer.exe .'
+fi
+
+# ========== End update $PATH ==========
+
 # ========== Start basic ==========
 # searching through history by up/down arrow
 autoload -U up-line-or-beginning-search
@@ -193,26 +183,6 @@ setopt inc_append_history
 setopt share_history
 
 # ========== End basic ==========
-
-# bun completions
-[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# mise
-# note this assumes mise is located at ~/.local/bin/mise
-# which is what https://mise.run does by default
-eval "$(~/.local/bin/mise activate zsh)"
-
-# pnpm
-export PNPM_HOME="~/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 
 # ========== Start load zinit ==========
 source ~/dotfiles/.zsh-plugins.zsh
