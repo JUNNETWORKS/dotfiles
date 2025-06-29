@@ -8,7 +8,7 @@ if [ -d "~/powerlevel10k" ]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 fi
 
-echo create symlink for zshrc, p10k, vim, tmux, scripts, ranger, git
+echo create symlink for configurations
 
 # zsh (based on powerlevel10k)
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
@@ -36,9 +36,17 @@ ln -sf ~/dotfiles/git/.gitignore_global ~/.gitignore_global
 ln -sf ~/dotfiles/.config/cz-config.js ~/.config
 
 # claude code
+mkdir -p ~/.claude
 ln -sf ~/dotfiles/.claude/CLAUDE.md ~/.claude/CLAUDE.md
 
 if uname -o | grep -q "Darwin" ; then
   # install dependencies
   exec ./_env_setup.osx.sh
 fi
+
+if cat /etc/os-release | grep -q "ID_LIKE=debian" ; then
+  # install dependencies
+  exec ./_env_setup.debian.sh
+fi
+
+exec ./_env_setup.common.sh
