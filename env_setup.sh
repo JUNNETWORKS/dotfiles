@@ -40,5 +40,5 @@ ln -sf ~/dotfiles/.claude/CLAUDE.md ~/.claude/CLAUDE.md
 
 if uname -o | grep -q "Darwin" ; then
   # install dependencies
-  exec ./_install.sh.osx
+  exec ./_env_setup.osx.sh
 fi
