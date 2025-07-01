@@ -35,9 +35,9 @@ ln -sf ~/dotfiles/git/.gitignore_global ~/.gitignore_global
 # cz-suctomizable
 ln -sf ~/dotfiles/.config/cz-config.js ~/.config
 
-# claude code
+# claude global
 mkdir -p ~/.claude
-ln -sf ~/dotfiles/.claude/CLAUDE.md ~/.claude/CLAUDE.md
+ln -sf ~/dotfiles/.claude_global/CLAUDE.md ~/.claude/CLAUDE.md
 
 if uname -o | grep -q "Darwin" ; then
   # install dependencies
