@@ -91,14 +91,16 @@ RECENT_COMMITS=$(git log --oneline -10 --format="%s" 2>/dev/null || echo "")
 # Create the prompt for the AI
 PROMPT="You are an expert developer creating a concise, conventional commit message.
 
-Analyze the following git diff and generate a commit message following these guidelines:
-1. Start with a type: feat, fix, docs, style, refactor, test, chore
+Analyze the following git diff and generate a commit message that follows the same style and conventions as the recent commits in this repository.
+
+Guidelines:
+1. Study the recent commit patterns and match their style (prefix, format, scope usage)
 2. Use present tense, imperative mood (\"add feature\" not \"added feature\")
 3. Keep the first line under 50 characters
 4. Be specific about what changed
-5. Follow conventional commits format: type(scope): description
+5. Follow the established patterns from recent commits
 
-Recent commit messages for context:
+Recent commit messages for reference (match this style):
 ${RECENT_COMMITS}
 
 Git diff to analyze:
@@ -106,7 +108,7 @@ Git diff to analyze:
 ${STAGED_DIFF}
 \`\`\`
 
-Generate only the commit message, no explanations or additional text."
+Generate only the commit message that naturally fits with the recent commit history, no explanations or additional text."
 
 # Make API call to Anthropic
 echo -e "${BLUE}Generating commit message...${NC}"
