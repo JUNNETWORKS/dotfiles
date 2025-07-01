@@ -141,6 +141,9 @@ elif [[ "$OSTYPE" == "msys"* ]]; then
   alias ee='explorer.exe .'
 fi
 
+# Add scripts directory to PATH
+export PATH="$HOME/scripts:$PATH"
+
 # ========== End update $PATH ==========
 
 # ========== Start basic ==========
