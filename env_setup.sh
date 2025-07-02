@@ -38,6 +38,7 @@ ln -sf ~/dotfiles/.config/cz-config.js ~/.config
 # claude global
 mkdir -p ~/.claude
 ln -sf ~/dotfiles/.claude_global/CLAUDE.md ~/.claude/CLAUDE.md
+ln -sf ~/dotfiles/.claude_global/settings.json ~/.claude/settings.json
 
 if uname -o | grep -q "Darwin" ; then
   # install dependencies
