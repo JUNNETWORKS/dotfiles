@@ -1,7 +1,5 @@
 {
   "model": "claude-3-5-sonnet-20241022",
-  "maxTokens": 8192,
-  "temperature": 0.1,
   "tools": {
     "enabled": [
       "bash",
@@ -21,28 +19,24 @@
       "notebook_edit"
     ]
   },
-  "features": {
-    "auto_commit": false,
-    "auto_push": false,
-    "interactive_mode": true,
-    "memory": true
-  },
-  "preferences": {
-    "language": "ja",
-    "verbosity": "concise",
-    "code_comments": false,
-    "security_mode": "defensive"
-  },
   "hooks": {
-    "pre_commit": [],
-    "post_commit": [],
-    "pre_push": [],
-    "post_push": []
-  },
-  "aliases": {
-    "speak": "./scripts/speak-voicevox.sh",
-    "dev": "./scripts/ide.sh",
-    "commit": "./scripts/ai-commit.sh",
-    "worktree": "./scripts/create-worktree.sh"
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [{
+          "type": "command",
+          "command": "./scripts/speak-voicevox.sh \"タスクが完了しました\""
+        }]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [{
+          "type": "command",
+          "command": "./scripts/speak-voicevox.sh \"通知があります\""
+        }]
+      }
+    ]
   }
 }
