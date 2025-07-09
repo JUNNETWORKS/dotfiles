@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # VOICEVOX speak command
-# Usage: ./speak.sh "話したい文章"
+# Usage: ./speak-voicevox.sh "話したい文章"
 
 set -e
 
@@ -10,11 +10,46 @@ VOICEVOX_HOST="127.0.0.1"
 VOICEVOX_URL="http://${VOICEVOX_HOST}:${VOICEVOX_PORT}"
 ZUNDAMON_SPEAKER_ID=3  # ずんだもんの基本スタイルID（ノーマル）
 
+# ヘルプ表示
+show_help() {
+    cat << EOF
+VOICEVOX speak command
+
+使用法:
+    $0 "話したい文章"
+    $0 [オプション]
+
+オプション:
+    -h, --help    このヘルプを表示
+
+説明:
+    VOICEVOXを使用してずんだもんの音声で指定したテキストを読み上げます。
+    VOICEVOXコンテナが起動していない場合は自動的に起動します。
+
+例:
+    $0 "こんにちは、ずんだもんなのだ！"
+    $0 "今日はいい天気ですね"
+
+要件:
+    - Docker がインストールされていること
+    - macOSの場合は afplay コマンドが利用可能であること
+    - Linuxの場合は aplay または paplay コマンドが利用可能であること
+
+EOF
+}
+
 # 引数チェック
 if [ $# -eq 0 ]; then
     echo "使用法: $0 \"話したい文章\""
     echo "例: $0 \"こんにちは、ずんだもんなのだ！\""
+    echo "詳細は $0 -h で確認してください"
     exit 1
+fi
+
+# ヘルプオプションのチェック
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    show_help
+    exit 0
 fi
 
 TEXT="$1"
@@ -72,7 +107,7 @@ synthesize_and_play() {
     
     # audio_queryの生成（URLエンコード）
     local encoded_text=$(printf '%s' "${text}" | jq -sRr @uri)
-    curl -s -X POST "${VOICEVOX_URL}/audio_query?text=${encoded_text}&speaker=${ZUNDAMON_SPEAKER_ID}" \
+    curl -s -X POST "${VOICEVOX_URL}/audio_query?text=${encoded_text}&speaker=${ZUNDAMON_SPEAKER_ID}&enable_katakana_english=false" \
         -H "Content-Type: application/json" \
         -o "${query_file}"
     
