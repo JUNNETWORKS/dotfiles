@@ -40,6 +40,9 @@ mkdir -p ~/.claude
 ln -sf ~/dotfiles/.claude_global/CLAUDE.md ~/.claude/CLAUDE.md
 ln -sf ~/dotfiles/.claude_global/settings.json ~/.claude/settings.json
 
+# zsh completions
+./_setup_zsh_completions.sh
+
 if uname -o | grep -q "Darwin" ; then
   # install dependencies
   exec ./_env_setup.osx.sh
