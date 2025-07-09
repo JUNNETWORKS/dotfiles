@@ -3,7 +3,10 @@
     "allow": [
       "Bash(chmod:*)",
       "Bash(/Users/junichi.sasaki/dotfiles/scripts/ai-commit.sh:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(mv:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }
