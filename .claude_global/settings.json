@@ -1,22 +1,18 @@
 {
-  "model": "claude-3-5-sonnet-20241022",
-  "tools": {
-    "enabled": [
-      "bash",
-      "read",
-      "write",
-      "edit",
-      "multi_edit",
-      "glob",
-      "grep",
-      "ls",
-      "web_search",
-      "web_fetch",
-      "task",
-      "todo_read",
-      "todo_write",
-      "notebook_read",
-      "notebook_edit"
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "Bash(grep:*)",
+      "Bash(mv:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docs.anthropic.com)"
+    ],
+    "deny": [
+      "Bash(rm:*)"
     ]
   },
   "hooks": {
