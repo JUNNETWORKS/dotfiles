@@ -36,7 +36,7 @@ ORIGINAL_DIR=$(pwd)
 PROJECT_ROOT=$(git rev-parse --show-toplevel)
 PROJECT_NAME=$(basename "$PROJECT_ROOT")
 
-DEFAULT_WORKTREE_NAME="../${PROJECT_NAME}-${BRANCH_NAME}"
+DEFAULT_WORKTREE_NAME="../${PROJECT_NAME}-${BRANCH_NAME//\//-}"
 WORKTREE_DIR_ARG="${2:-$DEFAULT_WORKTREE_NAME}"
 
 # --- Gitリポジトリかどうかのチェック ---
