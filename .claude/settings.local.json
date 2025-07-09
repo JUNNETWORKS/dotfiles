@@ -6,7 +6,10 @@
       "Bash(grep:*)",
       "Bash(mv:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(./scripts/speak.sh:*)",
+      "Bash(curl:*)"
     ],
     "deny": []
   }
