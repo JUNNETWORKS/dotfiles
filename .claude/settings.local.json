@@ -9,7 +9,9 @@
       "Bash(git commit:*)",
       "WebFetch(domain:github.com)",
       "Bash(./scripts/speak.sh:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "WebFetch(domain:docs.anthropic.com)"
     ],
     "deny": []
   }
