@@ -17,6 +17,7 @@ VOICEVOX speak command
 
 使用法:
     $0 "話したい文章"
+    echo "話したい文章" | $0
     $0 [オプション]
 
 オプション:
@@ -25,10 +26,12 @@ VOICEVOX speak command
 説明:
     VOICEVOXを使用してずんだもんの音声で指定したテキストを読み上げます。
     VOICEVOXコンテナが起動していない場合は自動的に起動します。
+    引数として文章を渡すか、標準入力から文章を読み取ることができます。
 
 例:
     $0 "こんにちは、ずんだもんなのだ！"
-    $0 "今日はいい天気ですね"
+    echo "今日はいい天気ですね" | $0
+    cat message.txt | $0
 
 要件:
     - Docker がインストールされていること
@@ -38,21 +41,26 @@ VOICEVOX speak command
 EOF
 }
 
-# 引数チェック
-if [ $# -eq 0 ]; then
-    echo "使用法: $0 \"話したい文章\""
-    echo "例: $0 \"こんにちは、ずんだもんなのだ！\""
-    echo "詳細は $0 -h で確認してください"
-    exit 1
-fi
-
 # ヘルプオプションのチェック
 if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
     show_help
     exit 0
 fi
 
-TEXT="$1"
+# テキストの取得（引数または標準入力から）
+if [ $# -eq 0 ]; then
+    # 標準入力から読み込み
+    if [ -t 0 ]; then
+        echo "使用法: $0 \"話したい文章\""
+        echo "または: echo \"話したい文章\" | $0"
+        echo "例: $0 \"こんにちは、ずんだもんなのだ！\""
+        echo "詳細は $0 -h で確認してください"
+        exit 1
+    fi
+    TEXT=$(cat)
+else
+    TEXT="$1"
+fi
 
 # VOICEVOXコンテナが起動しているかチェック
 check_voicevox_running() {
