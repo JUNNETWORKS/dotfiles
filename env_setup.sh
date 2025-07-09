@@ -41,16 +41,16 @@ ln -sf ~/dotfiles/.claude_global/CLAUDE.md ~/.claude/CLAUDE.md
 ln -sf ~/dotfiles/.claude_global/settings.json ~/.claude/settings.json
 
 # zsh completions
-./_setup_zsh_completions.sh
+./setup/_setup_zsh_completions.sh
 
 if uname -o | grep -q "Darwin" ; then
   # install dependencies
-  exec ./_env_setup.osx.sh
+  exec ./setup/_env_setup.osx.sh
 fi
 
 if cat /etc/os-release | grep -q "ID_LIKE=debian" ; then
   # install dependencies
-  exec ./_env_setup.debian.sh
+  exec ./setup/_env_setup.debian.sh
 fi
 
-exec ./_env_setup.common.sh
+exec ./setup/_env_setup.common.sh

@@ -11,7 +11,8 @@
       "Bash(./scripts/speak.sh:*)",
       "Bash(curl:*)",
       "Bash(ls:*)",
-      "WebFetch(domain:docs.anthropic.com)"
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(mkdir:*)"
     ],
     "deny": []
   }

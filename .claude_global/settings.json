@@ -13,7 +13,8 @@
     ],
     "deny": [
       "Bash(rm:*)"
-    ]
+    ],
+    "defaultMode": "acceptEdits"
   },
   "hooks": {
     "Stop": [
