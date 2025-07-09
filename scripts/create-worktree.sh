@@ -8,7 +8,7 @@ set -e
 # --- 使用方法を表示する関数 ---
 show_usage() {
     cat <<EOF
-Usage: $0 <branch-name> [worktree-directory]
+Usage: $0 <branch-name> [worktree-directory] [--init-command "command"]
 
 Creates a temporary git worktree, opens a new shell session within it,
 and automatically cleans up the worktree upon exiting the shell.
@@ -16,11 +16,13 @@ and automatically cleans up the worktree upon exiting the shell.
 Examples:
   $0 feature-branch
   $0 feature-branch /tmp/my-temp-work
-  $0 bugfix-123 ../temp-bugfix
+  $0 bugfix-123 ../temp-bugfix --init-command "npm install"
+  $0 feature-branch --init-command "npm ci && npm run build"
 
 The script will:
   1. Create a new git worktree for a new or existing branch.
-  2. Open a new interactive zsh shell that will clean itself up on exit.
+  2. Run the initialization command if provided.
+  3. Open a new interactive zsh shell that will clean itself up on exit.
 EOF
 }
 
@@ -30,14 +32,38 @@ if [[ $# -eq 0 || "$1" = "-h" || "$1" = "--help" ]]; then
     exit 0
 fi
 
-# --- 変数の設定 ---
+# --- 引数の解析 ---
 BRANCH_NAME="$1"
+WORKTREE_DIR_ARG=""
+INIT_COMMAND=""
+
+# 引数を解析
+shift
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --init-command)
+            INIT_COMMAND="$2"
+            shift 2
+            ;;
+        *)
+            if [[ -z "$WORKTREE_DIR_ARG" ]]; then
+                WORKTREE_DIR_ARG="$1"
+            else
+                echo "Error: Unknown argument '$1'" >&2
+                exit 1
+            fi
+            shift
+            ;;
+    esac
+done
+
+# --- 変数の設定 ---
 ORIGINAL_DIR=$(pwd)
 PROJECT_ROOT=$(git rev-parse --show-toplevel)
 PROJECT_NAME=$(basename "$PROJECT_ROOT")
 
 DEFAULT_WORKTREE_NAME="../${PROJECT_NAME}-${BRANCH_NAME//\//-}"
-WORKTREE_DIR_ARG="${2:-$DEFAULT_WORKTREE_NAME}"
+WORKTREE_DIR_ARG="${WORKTREE_DIR_ARG:-$DEFAULT_WORKTREE_NAME}"
 
 # --- Gitリポジトリかどうかのチェック ---
 if ! git rev-parse --git-dir > /dev/null 2>&1; then
@@ -178,6 +204,16 @@ export TEMP_ZDOTDIR
 
 # worktreeディレクトリに移動
 cd "$WORKTREE_DIR"
+
+# 初期化コマンドを実行（指定されている場合）
+if [[ -n "$INIT_COMMAND" ]]; then
+    echo "Running initialization command: $INIT_COMMAND"
+    echo ""
+    if ! eval "$INIT_COMMAND"; then
+        echo "Warning: Initialization command failed. Continuing anyway..." >&2
+    fi
+    echo ""
+fi
 
 # 親プロセスを新しいzshで置き換える
 # ZDOTDIRを指定して、一時的な.zshrcを読み込ませる
