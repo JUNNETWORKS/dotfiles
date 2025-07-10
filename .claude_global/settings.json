@@ -11,9 +11,6 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:docs.anthropic.com)"
     ],
-    "deny": [
-      "Bash(rm:*)"
-    ],
     "defaultMode": "acceptEdits"
   },
   "hooks": {
