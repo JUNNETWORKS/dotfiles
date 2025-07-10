@@ -27,7 +27,6 @@ zi snippet OMZP::yarn
 zi snippet OMZP::npm
 zi snippet OMZP::node
 zi snippet OMZP::pip
-zi snippet OMZP::dotenv
 zi snippet OMZP::golang
 zi snippet OMZP::terraform
 zi snippet OMZP::kubectl
