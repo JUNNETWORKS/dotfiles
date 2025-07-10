@@ -12,7 +12,8 @@
       "Bash(curl:*)",
       "Bash(ls:*)",
       "WebFetch(domain:docs.anthropic.com)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(find:*)"
     ],
     "deny": []
   }
