@@ -78,20 +78,25 @@ echo -e "${BLUE}Analyzing staged changes...${NC}"
 # Get the staged diff
 STAGED_DIFF=$(git diff --cached)
 
-# Check if diff is too large
+# Get staged file information
+STAGED_FILES=$(git diff --cached --name-status)
+STAGED_FILE_LIST=$(git diff --cached --name-only)
+
+# Check if diff is too large and decide on approach
+USE_FILE_BASED_APPROACH=false
 if [[ ${#STAGED_DIFF} -gt $MAX_DIFF_SIZE ]]; then
-    echo -e "${YELLOW}Warning: Diff is large (${#STAGED_DIFF} chars). Truncating to ${MAX_DIFF_SIZE} chars...${NC}"
-    STAGED_DIFF=$(echo "$STAGED_DIFF" | head -c $MAX_DIFF_SIZE)
-    STAGED_DIFF="${STAGED_DIFF}...\n[TRUNCATED]"
+    echo -e "${YELLOW}Warning: Diff is large (${#STAGED_DIFF} chars). Using file-based approach instead...${NC}"
+    USE_FILE_BASED_APPROACH=true
 fi
 
 # Get recent commit messages for context
 RECENT_COMMITS=$(git log --oneline -10 --format="%s" 2>/dev/null || echo "")
 
 # Create the prompt for the AI
-PROMPT="You are an expert developer creating a concise, conventional commit message.
+if [[ "$USE_FILE_BASED_APPROACH" == true ]]; then
+    PROMPT="You are an expert developer creating a concise, conventional commit message.
 
-Analyze the following git diff and generate a commit message that follows the same style and conventions as the recent commits in this repository.
+Analyze the following staged files and generate a commit message that follows the same style and conventions as the recent commits in this repository.
 
 Guidelines:
 1. Study the recent commit patterns and match their style (prefix, format, scope usage)
@@ -103,12 +108,42 @@ Guidelines:
 Recent commit messages for reference (match this style):
 ${RECENT_COMMITS}
 
+Staged files with change status:
+\`\`\`
+${STAGED_FILES}
+\`\`\`
+
+File list:
+${STAGED_FILE_LIST}
+
+Generate only the commit message that naturally fits with the recent commit history, no explanations or additional text."
+else
+    PROMPT="You are an expert developer creating a concise, conventional commit message.
+
+Analyze the following git diff and staged files to generate a commit message that follows the same style and conventions as the recent commits in this repository.
+
+Guidelines:
+1. Study the recent commit patterns and match their style (prefix, format, scope usage)
+2. Use present tense, imperative mood (\"add feature\" not \"added feature\")
+3. Keep the first line under 50 characters
+4. Be specific about what changed
+5. Follow the established patterns from recent commits
+
+Recent commit messages for reference (match this style):
+${RECENT_COMMITS}
+
+Staged files with change status:
+\`\`\`
+${STAGED_FILES}
+\`\`\`
+
 Git diff to analyze:
 \`\`\`diff
 ${STAGED_DIFF}
 \`\`\`
 
 Generate only the commit message that naturally fits with the recent commit history, no explanations or additional text."
+fi
 
 # Make API call to Anthropic
 echo -e "${BLUE}Generating commit message...${NC}"
