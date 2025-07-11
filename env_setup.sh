@@ -44,13 +44,16 @@ ln -sf ~/dotfiles/.claude_global/settings.json ~/.claude/settings.json
 ./setup/_setup_zsh_completions.sh
 
 if uname -o | grep -q "Darwin" ; then
+  echo "Setup MacOS settings..."
   # install dependencies
   exec ./setup/_env_setup.osx.sh
 fi
 
 if cat /etc/os-release | grep -q "ID_LIKE=debian" ; then
+  echo "Setup Linux settings..."
   # install dependencies
   exec ./setup/_env_setup.debian.sh
 fi
 
+echo "Setup common settings..."
 exec ./setup/_env_setup.common.sh

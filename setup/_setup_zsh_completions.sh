@@ -26,7 +26,7 @@ echo "Using completion directory: $COMPLETION_DIR"
 sudo mkdir -p "$COMPLETION_DIR"
 
 # 補完ファイルのシンボリックリンクを作成
-DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
 # create-worktree.sh の補完
 if [[ -f "$DOTFILES_DIR/scripts/_create-worktree" ]]; then
