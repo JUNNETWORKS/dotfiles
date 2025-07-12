@@ -28,6 +28,9 @@ ln -sf ~/dotfiles/scripts ~/scripts
 # ranger
 ln -sf ~/dotfiles/.config/ranger ~/.config/ranger
 
+# mise
+ln -sf ~/dotfiles/.config/mise ~/.config/mise
+
 # git
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/git/.gitignore_global ~/.gitignore_global
