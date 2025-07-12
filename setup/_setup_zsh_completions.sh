@@ -5,6 +5,9 @@
 set -e
 
 echo "Setting up zsh completions..."
+autoload -Uz compinit
+compinit
+
 
 # 補完ディレクトリを動的に取得
 COMPLETION_DIR=""
