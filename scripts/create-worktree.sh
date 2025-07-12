@@ -146,15 +146,24 @@ cleanup() {
     echo "Returning to the original directory: ${ORIGINAL_DIR}"
     cd "${ORIGINAL_DIR}"
 
-    # git worktreeを削除
-    if git worktree list | grep -q "\[${WORKTREE_DIR}\]"; then
-        echo "Removing worktree directory: ${WORKTREE_DIR}"
-        git worktree remove "${WORKTREE_DIR}" --force
-    elif [[ -d "${WORKTREE_DIR}" ]]; then
-        echo "Removing leftover directory: ${WORKTREE_DIR}"
-        rm -rf "${WORKTREE_DIR}"
+    # worktreeを削除するか確認
+    if git worktree list | grep -q "\[${WORKTREE_DIR}\]" || [[ -d "${WORKTREE_DIR}" ]]; then
+        read -q "reply?Do you want to remove the worktree '${WORKTREE_DIR}'? (y/N): "
+        echo
+        if [[ "${reply}" =~ ^[Yy]$ ]]; then
+            # git worktreeを削除
+            if git worktree list | grep -q "\[${WORKTREE_DIR}\]"; then
+                echo "Removing worktree directory: ${WORKTREE_DIR}"
+                git worktree remove "${WORKTREE_DIR}" --force
+            elif [[ -d "${WORKTREE_DIR}" ]]; then
+                echo "Removing leftover directory: ${WORKTREE_DIR}"
+                rm -rf "${WORKTREE_DIR}"
+            fi
+            git worktree prune
+        else
+            echo "Worktree '${WORKTREE_DIR}' was kept."
+        fi
     fi
-    git worktree prune
 
     # ブランチを削除するか確認
     if git rev-parse --verify --quiet "refs/heads/${BRANCH_NAME}" >/dev/null && \
