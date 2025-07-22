@@ -26,6 +26,7 @@ ln -sf ~/dotfiles/.tmux.powerline.conf ~/.tmux.powerline.conf
 ln -sf ~/dotfiles/scripts ~/scripts
 
 # ranger
+mkdir -p ~/.config
 ln -sf ~/dotfiles/.config/ranger ~/.config/ranger
 
 # mise
