@@ -17,19 +17,23 @@
     "Stop": [
       {
         "matcher": "",
-        "hooks": [{
-          "type": "command",
-          "command": "speak-voicevox.sh \"タスクが完了しました\""
-        }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "speak-voicevox.sh \"タスクが完了しました\""
+          }
+        ]
       }
     ],
     "Notification": [
       {
         "matcher": "",
-        "hooks": [{
-          "type": "command",
-          "command": "speak-voicevox.sh \"通知があります\""
-        }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "speak-voicevox.sh \"通知があります\""
+          }
+        ]
       }
     ]
   }
