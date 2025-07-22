@@ -6,6 +6,8 @@
 
 ## How to use
 
+zsh がインストールされていることを前提としています.
+
 ```
 cd ~
 git clone <this_repository_url>
