@@ -16,6 +16,15 @@ print_error() {
 }
 
 ##################################
+# Symlinks
+##################################
+
+# diff-highlight
+sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
+sudo ln -sf /usr/share/doc/git/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+
+
+##################################
 # Install Softwares
 ##################################
 
@@ -98,10 +107,6 @@ SNAP_PACKAGES=(
 
 )
 
-
-##################################
-# Symlinks
-##################################
 
 # メイン処理開始
 print_info "パッケージの自動インストールを開始します..."
