@@ -118,11 +118,11 @@ print_success "システムの更新が完了しました"
 
 # APTパッケージのインストール
 print_info "APTパッケージをインストール中..."
-print_info "インストール対象: ${#PACKAGES[@]} パッケージ"
+print_info "インストール対象: ${#APT_PACKAGES[@]} パッケージ"
 
 # パッケージリストを表示
 echo "インストールするパッケージ:"
-for package in "${PACKAGES[@]}"; do
+for package in "${APT_PACKAGES[@]}"; do
     echo "  - $package"
 done
 
@@ -135,7 +135,7 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 fi
 
 # 一括インストール実行
-if sudo apt install -y "${PACKAGES[@]}"; then
+if sudo apt install -y "${APT_PACKAGES[@]}"; then
     print_success "APTパッケージのインストールが完了しました"
 else
     print_error "APTパッケージのインストールでエラーが発生しました"
