@@ -39,6 +39,14 @@ else
     echo "Warning: $DOTFILES_DIR/scripts/_create-worktree not found"
 fi
 
+# mise の補完
+if [[ -f "$DOTFILES_DIR/.config/zsh/completions/_mise" ]]; then
+    echo "Installing create-worktree completion..."
+    sudo ln -sf "$DOTFILES_DIR/.config/zsh/completions/_mise" "$COMPLETION_DIR/_mise"
+else
+    echo "Warning: $DOTFILES_DIR/.config/zsh/completions/_mise not found"
+fi
+
 # 今後追加する補完ファイルはここに記述
 # 例:
 # if [[ -f "$DOTFILES_DIR/scripts/_another-script" ]]; then
