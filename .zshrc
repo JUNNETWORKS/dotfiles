@@ -202,7 +202,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # ~/.fzf.zsh は fzf インストール時に生成されるファイル
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-## [Completion]
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f "/Users/$USER/.dart-cli-completion/zsh-config.zsh" ]] && . "/Users/$USER/.dart-cli-completion/zsh-config.zsh" || true
-
