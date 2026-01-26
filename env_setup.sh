@@ -39,6 +39,9 @@ ln -sf ~/dotfiles/git/.gitignore_global ~/.gitignore_global
 # cz-suctomizable
 ln -sf ~/dotfiles/.config/cz-config.js ~/.config
 
+# nvim
+ln -sf ~/dotfiles/.config/nvim ~/.config/nvim
+
 # claude global
 mkdir -p ~/.claude
 ln -sf ~/dotfiles/.claude_global/CLAUDE.md ~/.claude/CLAUDE.md
