@@ -1,3 +1,8 @@
 [tools]
 node = "22"
+python = "3.11"
 usage = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["python"]
+experimental = true
