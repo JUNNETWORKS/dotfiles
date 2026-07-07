@@ -1,0 +1,152 @@
+{
+  // 言語に依らない VSCode の設定
+  "editor.minimap.enabled": false,
+  "editor.fontSize": 15,
+  "files.autoSave": "afterDelay",
+  "git.autofetch": true,
+  "editor.tabSize": 2,
+  "workbench.tree.indent": 12,
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": ["-l"],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": ["-l"]
+    },
+    "fish": {
+      "path": "fish",
+      "args": ["-l"]
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "git.enableSmartCommit": true,
+  "workbench.activityBar.location": "top",
+  "editor.stickyScroll.defaultModel": "foldingProviderModel",
+  // 表示機能の有効化
+  "editor.guides.indentation": true,
+  "editor.guides.highlightActiveIndentation": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.bracketPairColorization.enabled": true,
+  // VSCode のテーマの設定
+  "workbench.colorCustomizations": {
+    // インデントガイド(深さごとに循環)
+    "editorIndentGuide.background1": "#e06c7530",
+    "editorIndentGuide.background2": "#e5c07b30",
+    "editorIndentGuide.background3": "#98c37930",
+    "editorIndentGuide.background4": "#61afef30",
+    "editorIndentGuide.background5": "#c678dd30",
+    "editorIndentGuide.background6": "#56b6c230",
+    "editorIndentGuide.activeBackground1": "#ffffff90",
+
+    // ブラケットペアガイド(括弧を結ぶ縦線)
+    "editorBracketPairGuide.background1": "#e06c7550",
+    "editorBracketPairGuide.background2": "#e5c07b50",
+    "editorBracketPairGuide.background3": "#98c37950",
+    "editorBracketPairGuide.background4": "#61afef50",
+    "editorBracketPairGuide.background5": "#c678dd50",
+    "editorBracketPairGuide.background6": "#56b6c250",
+    "editorBracketPairGuide.activeBackground1": "#e06c75",
+    "editorBracketPairGuide.activeBackground2": "#e5c07b",
+    "editorBracketPairGuide.activeBackground3": "#98c379",
+    "editorBracketPairGuide.activeBackground4": "#61afef",
+    "editorBracketPairGuide.activeBackground5": "#c678dd",
+    "editorBracketPairGuide.activeBackground6": "#56b6c2",
+
+    // 括弧そのものの色(深さと連動)
+    "editorBracketHighlight.foreground1": "#e06c75",
+    "editorBracketHighlight.foreground2": "#e5c07b",
+    "editorBracketHighlight.foreground3": "#98c379",
+    "editorBracketHighlight.foreground4": "#61afef",
+    "editorBracketHighlight.foreground5": "#c678dd",
+    "editorBracketHighlight.foreground6": "#56b6c2",
+    "editorBracketHighlight.unexpectedBracket.foreground": "#ff0000",
+
+    // カーソル位置の対応括弧
+    "editorBracketMatch.background": "#61afef30",
+    "editorBracketMatch.border": "#61afef",
+
+    // Sticky Scroll の色を変更する
+    "editorStickyScroll.background": "#1e2a3a",
+    "editorStickyScroll.border": "#4a90d9",
+    "editorStickyScroll.shadow": "#000000",
+    "editorStickyScrollHover.background": "#2d3f56"
+  },
+
+  // 言語ごとの VSCode の設定
+  "debug.javascript.autoAttachFilter": "smart",
+  "go.toolsManagement.autoUpdate": true,
+  "prisma.showPrismaDataPlatformNotification": false,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "dart.flutterSdkPath": "/Users/junichi.sasaki/flutter",
+  "js/ts.inlayHints.enumMemberValues.enabled": true,
+  "js/ts.inlayHints.functionLikeReturnTypes.enabled": true,
+  "js/ts.inlayHints.propertyDeclarationTypes.enabled": true,
+  "js/ts.preferGoToSourceDefinition": true,
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "C_Cpp.default.compilerPath": "/usr/bin/clang",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Vim の設定
+  // 検索結果をハイライトする
+  "vim.hlsearch": true,
+  // * と # で単語を検索する
+  "vim.visualstar": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-w>", "s"],
+      "commands": [
+        {
+          "command": "workbench.action.splitEditorDown"
+        }
+      ]
+    }, //水平に開く
+    {
+      "before": ["<C-w>", "v"],
+      "commands": [
+        {
+          "command": "workbench.action.splitEditorRight"
+        }
+      ]
+    }, //垂直に開く
+    {
+      "before": ["<C-w>", "c"],
+      "commands": [
+        {
+          "command": "workbench.action.closeActiveEditor"
+        }
+      ]
+    } // ファイルを閉じる
+  ],
+
+  // GitHub Copilot の設定
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.languageContext.fix.typescript.enabled": true,
+  "github.copilot.chat.languageContext.inline.typescript.enabled": true,
+  "github.copilot.chat.languageContext.typescript.enabled": true,
+  "redhat.telemetry.enabled": false,
+  "go.inlayHints.compositeLiteralFields": true,
+  "go.inlayHints.parameterNames": true,
+  "go.inlayHints.rangeVariableTypes": true,
+  "go.inlayHints.constantValues": true,
+  "editor.inlayHints.maximumLength": 0
+}
