@@ -33,7 +33,13 @@
   "git.enableSmartCommit": true,
   "workbench.activityBar.location": "top",
   "editor.stickyScroll.defaultModel": "foldingProviderModel",
-  // 表示機能の有効化
+
+  // インラインヒント
+  "editor.inlayHints.maximumLength": 0,
+  "editor.inlayHints.fontSize": 10,
+  "editor.inlayHints.padding": false,
+
+  // 強調表示機能の有効化
   "editor.guides.indentation": true,
   "editor.guides.highlightActiveIndentation": true,
   "editor.guides.bracketPairs": "active",
@@ -84,11 +90,15 @@
   },
 
   // 言語ごとの VSCode の設定
-  "debug.javascript.autoAttachFilter": "smart",
-  "go.toolsManagement.autoUpdate": true,
-  "prisma.showPrismaDataPlatformNotification": false,
-  "github.copilot.editor.enableAutoCompletions": true,
   "dart.flutterSdkPath": "/Users/junichi.sasaki/flutter",
+  "C_Cpp.default.compilerPath": "/usr/bin/clang",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "redhat.telemetry.enabled": false,
+  // JS/TS
+  "debug.javascript.autoAttachFilter": "smart",
+  "prisma.showPrismaDataPlatformNotification": false,
   "js/ts.inlayHints.enumMemberValues.enabled": true,
   "js/ts.inlayHints.functionLikeReturnTypes.enabled": true,
   "js/ts.inlayHints.propertyDeclarationTypes.enabled": true,
@@ -100,10 +110,12 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "C_Cpp.default.compilerPath": "/usr/bin/clang",
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  // Golang
+  "go.toolsManagement.autoUpdate": true,
+  "go.inlayHints.compositeLiteralFields": true,
+  "go.inlayHints.parameterNames": true,
+  "go.inlayHints.rangeVariableTypes": true,
+  "go.inlayHints.constantValues": true,
 
   // Vim の設定
   // 検索結果をハイライトする
@@ -143,10 +155,10 @@
   "github.copilot.chat.languageContext.fix.typescript.enabled": true,
   "github.copilot.chat.languageContext.inline.typescript.enabled": true,
   "github.copilot.chat.languageContext.typescript.enabled": true,
-  "redhat.telemetry.enabled": false,
-  "go.inlayHints.compositeLiteralFields": true,
-  "go.inlayHints.parameterNames": true,
-  "go.inlayHints.rangeVariableTypes": true,
-  "go.inlayHints.constantValues": true,
-  "editor.inlayHints.maximumLength": 0
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  }
 }
