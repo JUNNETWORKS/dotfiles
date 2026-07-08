@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# ========== Start User specific aliases and functions ==========
+# ========== Start User specific liases and functions ==========
 
 # Ctrl + S を押したときにXOFFによりキー入力が受け付けなくなるのを防ぐ
 if ! uname -o | grep -q "Darwin" && [[ -t 0 ]]; then
@@ -30,6 +30,8 @@ fi
 
 # Git aliases
 alias g="git"
+# lazygit
+alias lg="lazygit"
 
 # tmux commands
 alias ide="~/scripts/ide.sh"
