@@ -47,46 +47,93 @@
   // VSCode のテーマの設定
   "workbench.colorCustomizations": {
     // インデントガイド(深さごとに循環)
-    "editorIndentGuide.background1": "#e06c7530",
-    "editorIndentGuide.background2": "#e5c07b30",
-    "editorIndentGuide.background3": "#98c37930",
-    "editorIndentGuide.background4": "#61afef30",
-    "editorIndentGuide.background5": "#c678dd30",
-    "editorIndentGuide.background6": "#56b6c230",
-    "editorIndentGuide.activeBackground1": "#ffffff90",
+    // For Light Theme
+    "editorIndentGuide.background1": "#c74a4a35",
+    "editorIndentGuide.background2": "#b8860b35",
+    "editorIndentGuide.background3": "#2e8b5735",
+    "editorIndentGuide.background4": "#3a6ea535",
+    "editorIndentGuide.background5": "#8b5aa535",
+    "editorIndentGuide.background6": "#2b8a8a35",
+    "editorIndentGuide.activeBackground1": "#e07020c0",
+    // For Dark Theme
+    // "editorIndentGuide.background1": "#e06c7530",
+    // "editorIndentGuide.background2": "#e5c07b30",
+    // "editorIndentGuide.background3": "#98c37930",
+    // "editorIndentGuide.background4": "#61afef30",
+    // "editorIndentGuide.background5": "#c678dd30",
+    // "editorIndentGuide.background6": "#56b6c230",
+    // "editorIndentGuide.activeBackground1": "#ffffff90",
 
     // ブラケットペアガイド(括弧を結ぶ縦線)
-    "editorBracketPairGuide.background1": "#e06c7550",
-    "editorBracketPairGuide.background2": "#e5c07b50",
-    "editorBracketPairGuide.background3": "#98c37950",
-    "editorBracketPairGuide.background4": "#61afef50",
-    "editorBracketPairGuide.background5": "#c678dd50",
-    "editorBracketPairGuide.background6": "#56b6c250",
-    "editorBracketPairGuide.activeBackground1": "#e06c75",
-    "editorBracketPairGuide.activeBackground2": "#e5c07b",
-    "editorBracketPairGuide.activeBackground3": "#98c379",
-    "editorBracketPairGuide.activeBackground4": "#61afef",
-    "editorBracketPairGuide.activeBackground5": "#c678dd",
-    "editorBracketPairGuide.activeBackground6": "#56b6c2",
+    // For Light Theme
+    "editorBracketPairGuide.background1": "#c74a4a50",
+    "editorBracketPairGuide.background2": "#b8860b50",
+    "editorBracketPairGuide.background3": "#2e8b5750",
+    "editorBracketPairGuide.background4": "#3a6ea550",
+    "editorBracketPairGuide.background5": "#8b5aa550",
+    "editorBracketPairGuide.background6": "#2b8a8a50",
+    "editorBracketPairGuide.activeBackground1": "#c74a4a",
+    "editorBracketPairGuide.activeBackground2": "#b8860b",
+    "editorBracketPairGuide.activeBackground3": "#2e8b57",
+    "editorBracketPairGuide.activeBackground4": "#3a6ea5",
+    "editorBracketPairGuide.activeBackground5": "#8b5aa5",
+    "editorBracketPairGuide.activeBackground6": "#2b8a8a",
+    // For Dark Theme
+    // "editorBracketPairGuide.background1": "#e06c7550",
+    // "editorBracketPairGuide.background2": "#e5c07b50",
+    // "editorBracketPairGuide.background3": "#98c37950",
+    // "editorBracketPairGuide.background4": "#61afef50",
+    // "editorBracketPairGuide.background5": "#c678dd50",
+    // "editorBracketPairGuide.background6": "#56b6c250",
+    // "editorBracketPairGuide.activeBackground1": "#e06c75",
+    // "editorBracketPairGuide.activeBackground2": "#e5c07b",
+    // "editorBracketPairGuide.activeBackground3": "#98c379",
+    // "editorBracketPairGuide.activeBackground4": "#61afef",
+    // "editorBracketPairGuide.activeBackground5": "#c678dd",
+    // "editorBracketPairGuide.activeBackground6": "#56b6c2",
 
     // 括弧そのものの色(深さと連動)
-    "editorBracketHighlight.foreground1": "#e06c75",
-    "editorBracketHighlight.foreground2": "#e5c07b",
-    "editorBracketHighlight.foreground3": "#98c379",
-    "editorBracketHighlight.foreground4": "#61afef",
-    "editorBracketHighlight.foreground5": "#c678dd",
-    "editorBracketHighlight.foreground6": "#56b6c2",
-    "editorBracketHighlight.unexpectedBracket.foreground": "#ff0000",
+    // For Light Theme
+    "editorBracketHighlight.foreground1": "#c74a4a",
+    "editorBracketHighlight.foreground2": "#b8860b",
+    "editorBracketHighlight.foreground3": "#2e8b57",
+    "editorBracketHighlight.foreground4": "#3a6ea5",
+    "editorBracketHighlight.foreground5": "#8b5aa5",
+    "editorBracketHighlight.foreground6": "#2b8a8a",
+    "editorBracketHighlight.unexpectedBracket.foreground": "#d00000",
+    // For Dark Theme
+    // "editorBracketHighlight.foreground1": "#e06c75",
+    // "editorBracketHighlight.foreground2": "#e5c07b",
+    // "editorBracketHighlight.foreground3": "#98c379",
+    // "editorBracketHighlight.foreground4": "#61afef",
+    // "editorBracketHighlight.foreground5": "#c678dd",
+    // "editorBracketHighlight.foreground6": "#56b6c2",
+    // "editorBracketHighlight.unexpectedBracket.foreground": "#ff0000",
 
     // カーソル位置の対応括弧
-    "editorBracketMatch.background": "#61afef30",
-    "editorBracketMatch.border": "#61afef",
+    // For Light Theme
+    "editorBracketMatch.background": "#3a6ea520",
+    "editorBracketMatch.border": "#3a6ea5",
+    // For Dark Theme
+    // "editorBracketMatch.background": "#61afef30",
+    // "editorBracketMatch.border": "#61afef",
 
     // Sticky Scroll の色を変更する
-    "editorStickyScroll.background": "#1e2a3a",
-    "editorStickyScroll.border": "#4a90d9",
-    "editorStickyScroll.shadow": "#000000",
-    "editorStickyScrollHover.background": "#2d3f56"
+    // For Light Theme
+    // "editorStickyScroll.background": "#f4f6f8",
+    // "editorStickyScroll.border": "#d0d7de",
+    // "editorStickyScroll.shadow": "#00000020",
+    // "editorStickyScrollHover.background": "#e6ebf0"
+    // For Solarized Light Theme
+    "editorStickyScroll.background": "#f3f0e8",
+    "editorStickyScroll.border": "#d8d3c4",
+    "editorStickyScroll.shadow": "#00000025",
+    "editorStickyScrollHover.background": "#e8e2d2"
+    // For Dark Theme
+    // "editorStickyScroll.background": "#1e2a3a",
+    // "editorStickyScroll.border": "#4a90d9",
+    // "editorStickyScroll.shadow": "#000000",
+    // "editorStickyScrollHover.background": "#2d3f56"
   },
 
   // 言語ごとの VSCode の設定
@@ -155,10 +202,28 @@
   "github.copilot.chat.languageContext.fix.typescript.enabled": true,
   "github.copilot.chat.languageContext.inline.typescript.enabled": true,
   "github.copilot.chat.languageContext.typescript.enabled": true,
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  }
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ],
+  "gitlens.views.scm.grouped.views": {
+    "commits": true,
+    "branches": true,
+    "remotes": true,
+    "stashes": true,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "fileHistory": false,
+    "repositories": true,
+    "searchAndCompare": true,
+    "launchpad": false
+  },
+  "docker.extension.enableComposeLanguageServer": false,
+  "claudeCode.preferredLocation": "panel",
+  "workbench.colorTheme": "Solarized Light"
 }
