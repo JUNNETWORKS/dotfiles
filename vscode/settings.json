@@ -46,6 +46,62 @@
   "editor.bracketPairColorization.enabled": true,
   // VSCode のテーマの設定
   "workbench.colorCustomizations": {
+    "[Solarized Light]": {
+      // インデントガイド(深さごとに循環)
+      "editorIndentGuide.background1": "#c74a4a35",
+      "editorIndentGuide.background2": "#b8860b35",
+      "editorIndentGuide.background3": "#2e8b5735",
+      "editorIndentGuide.background4": "#3a6ea535",
+      "editorIndentGuide.background5": "#8b5aa535",
+      "editorIndentGuide.background6": "#2b8a8a35",
+      "editorIndentGuide.activeBackground1": "#e07020c0",
+
+      // ブラケットペアガイド(括弧を結ぶ縦線)
+      "editorBracketPairGuide.background1": "#c74a4a50",
+      "editorBracketPairGuide.background2": "#b8860b50",
+      "editorBracketPairGuide.background3": "#2e8b5750",
+      "editorBracketPairGuide.background4": "#3a6ea550",
+      "editorBracketPairGuide.background5": "#8b5aa550",
+      "editorBracketPairGuide.background6": "#2b8a8a50",
+      "editorBracketPairGuide.activeBackground1": "#c74a4a",
+      "editorBracketPairGuide.activeBackground2": "#b8860b",
+      "editorBracketPairGuide.activeBackground3": "#2e8b57",
+      "editorBracketPairGuide.activeBackground4": "#3a6ea5",
+      "editorBracketPairGuide.activeBackground5": "#8b5aa5",
+      "editorBracketPairGuide.activeBackground6": "#2b8a8a",
+
+      // 括弧そのものの色(深さと連動)
+      "editorBracketHighlight.foreground1": "#c74a4a",
+      "editorBracketHighlight.foreground2": "#b8860b",
+      "editorBracketHighlight.foreground3": "#2e8b57",
+      "editorBracketHighlight.foreground4": "#3a6ea5",
+      "editorBracketHighlight.foreground5": "#8b5aa5",
+      "editorBracketHighlight.foreground6": "#2b8a8a",
+      "editorBracketHighlight.unexpectedBracket.foreground": "#d00000",
+
+      // カーソル位置の対応括弧
+      "editorBracketMatch.background": "#3a6ea520",
+      "editorBracketMatch.border": "#3a6ea5",
+
+      // Sticky Scroll の色を変更する
+      "editorStickyScroll.background": "#f3f0e8",
+      "editorStickyScroll.border": "#d8d3c4",
+      "editorStickyScroll.shadow": "#00000025",
+      "editorStickyScrollHover.background": "#e8e2d2",
+
+      // 選択範囲の色を変更する
+      "editor.selectionBackground": "#b5890040",
+      "editor.selectionHighlightBackground": "#b5890020",
+      "editor.selectionHighlightBorder": "#b58900",
+
+      // 単語の強調表示の色を変更する
+      "editor.wordHighlightBackground": "#2aa19814",
+      "editor.wordHighlightBorder": "#2aa19850",
+      "editor.wordHighlightStrongBackground": "#268bd214",
+      "editor.wordHighlightStrongBorder": "#268bd250"
+
+    },
+
     // インデントガイド(深さごとに循環)
     // For Light Theme
     "editorIndentGuide.background1": "#c74a4a35",
@@ -124,11 +180,6 @@
     // "editorStickyScroll.border": "#d0d7de",
     // "editorStickyScroll.shadow": "#00000020",
     // "editorStickyScrollHover.background": "#e6ebf0"
-    // For Solarized Light Theme
-    "editorStickyScroll.background": "#f3f0e8",
-    "editorStickyScroll.border": "#d8d3c4",
-    "editorStickyScroll.shadow": "#00000025",
-    "editorStickyScrollHover.background": "#e8e2d2"
     // For Dark Theme
     // "editorStickyScroll.background": "#1e2a3a",
     // "editorStickyScroll.border": "#4a90d9",
