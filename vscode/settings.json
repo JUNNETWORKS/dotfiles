@@ -98,8 +98,11 @@
       "editor.wordHighlightBackground": "#2aa19814",
       "editor.wordHighlightBorder": "#2aa19850",
       "editor.wordHighlightStrongBackground": "#268bd214",
-      "editor.wordHighlightStrongBorder": "#268bd250"
+      "editor.wordHighlightStrongBorder": "#268bd250",
 
+      // カーソルの色を変更する
+      "editorCursor.foreground": "#93a1a1",
+      "editorCursor.background": "#fdf6e3"
     },
 
     // インデントガイド(深さごとに循環)
