@@ -1,8 +1,9 @@
-[tools]
-node = "22"
-python = "3.11"
-usage = "latest"
-
 [settings]
-idiomatic_version_file_enable_tools = ["python"]
+idiomatic_version_file_enable_tools = ["node"]
 experimental = true
+
+[tools]
+go = "1.26.4"
+node = "20.19"
+python = "3.14"
+usage = "latest"

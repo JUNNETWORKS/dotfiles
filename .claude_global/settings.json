@@ -1,4 +1,8 @@
 {
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1"
+  },
   "permissions": {
     "allow": [
       "Bash(chmod:*)",
@@ -8,10 +12,12 @@
       "Bash(git commit:*)",
       "Bash(curl:*)",
       "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(echo:*)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:docs.anthropic.com)"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
   "hooks": {
     "Stop": [
@@ -20,7 +26,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "speak-voicevox.sh \"タスクが完了しました\""
+            "command": "notify.sh -t \"Claude Code - $(basename \"$PWD\")\" -m \"タスクが完了しました\" -a com.googlecode.iterm2"
           }
         ]
       }
@@ -31,13 +37,21 @@
         "hooks": [
           {
             "type": "command",
-            "command": "speak-voicevox.sh \"通知があります\""
+            "command": "notify.sh -t \"Claude Code - $(basename \"$PWD\")\" -m \"通知があります\" -a com.googlecode.iterm2"
           }
         ]
       }
     ]
   },
   "enabledPlugins": {
-    "code-review@claude-code-plugins": true
-  }
+    "code-review@claude-code-plugins": true,
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "language": "Japanese",
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "showThinkingSummaries": true,
+  "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true
 }
