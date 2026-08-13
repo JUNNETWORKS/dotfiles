@@ -72,3 +72,5 @@
 	gpgsign = false
 [credential]
 	helper = osxkeychain
+[submodule]
+	recurse = true
