@@ -91,13 +91,6 @@ export PATH="$HOME/.dotnet:$PATH"
 PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
 PATH="$PATH:$PYTHON_BIN_PATH"
 
-# golang
-GOROOT="/usr/local/go"
-GOBIN="$GOROOT/bin"
-GOPATH="$HOME/go"
-GOPATHBIN="$GOPATH/bin"
-PATH="$PATH:$GOROOT:$GOPATH:$GOPATHBIN:$GOBIN"
-
 # Flutter
 FLUTTER_ROOT="$HOME/flutter"
 FLUTTER_BIN="$FLUTTER_ROOT/bin"
@@ -119,6 +112,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # note this assumes mise is located at ~/.local/bin/mise
 # which is what https://mise.run does by default
 eval "$(~/.local/bin/mise activate zsh)"
+
+# Go
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 
 # OS Specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
