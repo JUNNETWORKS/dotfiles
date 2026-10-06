@@ -279,5 +279,10 @@
   },
   "docker.extension.enableComposeLanguageServer": false,
   "claudeCode.preferredLocation": "panel",
-  "workbench.colorTheme": "Solarized Light"
+  "workbench.colorTheme": "Light 2026",
+  "githubPullRequests.pullBranch": "never",
+  "todo-tree.ripgrep.ripgrep": "/opt/homebrew/bin/rg",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": false,
+  "editor.wrappingIndent": "deepIndent",
 }
