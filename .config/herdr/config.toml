@@ -1,0 +1,38 @@
+[keys]
+
+# tmux: set -g prefix C-t
+prefix = "ctrl+t"
+
+# Prefix + r で設定再読込
+reload_config = "prefix+r"
+
+# h/j/k/l でペイン移動
+focus_pane_left  = "prefix+h"
+focus_pane_down  = "prefix+j"
+focus_pane_up    = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# Prefix + | で左右分割
+split_vertical = "prefix+|"
+
+# Prefix + - で上下分割
+split_horizontal = "prefix+minus"
+
+# Prefix + c で新規タブ
+new_tab = "prefix+c"
+
+# Prefix + H/J/K/L でリサイズ
+resize_pane_left  = "prefix+shift+h"
+resize_pane_down  = "prefix+shift+j"
+resize_pane_up    = "prefix+shift+k"
+resize_pane_right = "prefix+shift+l"
+
+# Prefix + P / N でタブ順序を移動
+move_tab_previous = "prefix+shift+p"
+move_tab_next     = "prefix+shift+n"
+
+# Prefix + [ でコピーモード
+copy_mode = "prefix+["
+
+# Prefix + x でペインを閉じる
+close_pane = "prefix+x"

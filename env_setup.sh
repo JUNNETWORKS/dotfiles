@@ -42,6 +42,10 @@ ln -sf ~/dotfiles/.config/cz-config.js ~/.config
 # nvim
 ln -sf ~/dotfiles/.config/nvim ~/.config/nvim
 
+# herdr
+mkdir -p ~/.config/herdr
+ln -sf ~/dotfiles/.config/herdr/config.toml ~/.config/herdr/config.toml
+
 # claude global
 mkdir -p ~/.claude
 ln -sf ~/dotfiles/.claude_global/CLAUDE.md ~/.claude/CLAUDE.md
