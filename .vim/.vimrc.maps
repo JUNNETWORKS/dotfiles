@@ -8,6 +8,15 @@ command! W w !sudo tee > /dev/null %
 " deactivate highlight
 nmap <silent><Esc><Esc> :nohl<Return>
 
+" 全角状態でのモード切り替え
+nnoremap あ a
+nnoremap い i
+nnoremap お o
+if has('win32')
+  nnoremap Ａ A
+  nnoremap Ｉ I
+endif
+
 "-------------------------------------------------------------------------------
 " Tabs
 "-------------------------------------------------------------------------------
